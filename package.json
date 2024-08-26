@@ -8,7 +8,8 @@
         "lint": "eslint .",
         "format": "prettier --write .",
         "prepare": "husky install",
-        "apis": "pnpm --filter apis start"
+        "apis": "pnpm --filter apis start:dev",
+        "vue": "pnpm --filter todos-vue dev"
     },
     "keywords": [],
     "author": "",

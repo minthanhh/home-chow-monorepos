@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common'
-import { PrismaService } from 'src/shareds'
 import { CreateTodoDto, UpdateTodoDto } from './dtos'
+import { PrismaService } from 'src/shareds'
 
 @Injectable()
 export class TodosService {

@@ -1,20 +1,26 @@
 import { Module } from '@nestjs/common'
-import { UsersService } from './users.service'
-import { UsersController } from './users.controller'
-import { PrismaService } from 'src/shareds'
 import { PassportModule } from '@nestjs/passport'
-import { GoogleStrategy, JwtStrategy, LocalStrategy, RefreshJwtStrategy } from './strategies'
 import { JwtModule } from '@nestjs/jwt'
+import { ConfigModule } from '@nestjs/config'
+
+import { UsersController } from './users.controller'
+import { UsersService } from './users.service'
+import { GoogleStrategy, JwtStrategy, LocalStrategy, RefreshJwtStrategy } from './strategies'
+import jwtConfig from './configs/jwt.config'
+import refreshJwtConfig from './configs/refresh-jwt.config'
+import googleOauthConfig from './configs/google-oauth.config'
+import { MailModule, MailService } from '../mail'
 
 @Module({
     imports: [
         PassportModule,
-        JwtModule.register({
-            secret: process.env.JWT_SECRET,
-            signOptions: { expiresIn: process.env.JWT_EXPIRES_IN },
-        }),
+        ConfigModule.forFeature(jwtConfig),
+        ConfigModule.forFeature(refreshJwtConfig),
+        ConfigModule.forFeature(googleOauthConfig),
+        JwtModule.registerAsync(jwtConfig.asProvider()),
+        MailModule,
     ],
-    providers: [UsersService, PrismaService, GoogleStrategy, LocalStrategy, JwtStrategy, RefreshJwtStrategy],
+    providers: [UsersService, GoogleStrategy, LocalStrategy, RefreshJwtStrategy, JwtStrategy, MailService],
     controllers: [UsersController],
 })
 export class UsersModule {}

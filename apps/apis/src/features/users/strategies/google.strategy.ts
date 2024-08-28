@@ -3,6 +3,7 @@ import { Strategy, VerifyCallback } from 'passport-google-oauth20'
 import { Injectable } from '@nestjs/common'
 import { UsersService } from '../users.service'
 import { IProfile } from '../interfaces'
+import { User } from '@prisma/client'
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy) {
@@ -16,7 +17,7 @@ export class GoogleStrategy extends PassportStrategy(Strategy) {
     }
 
     async validate(_accessToken: string, _refreshToken: string, profile: IProfile, done: VerifyCallback): Promise<any> {
-        const user = await this.userService.validateUserGoogle(profile)
+        const user: User = await this.userService.validateUserGoogle(profile)
         done(null, user)
     }
 }

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Req, Res, UseGuards } from '@nestjs/common'
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Req, Res, UseGuards } from '@nestjs/common'
 import { Request, Response } from 'express'
 import { GoogleOAuthGuard, JwtAuthGuard, LocalAuthGuard, RefreshAuthGuard } from './guards'
 import { CreateUserDto } from './dtos'
@@ -11,6 +11,7 @@ export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @UseGuards(LocalAuthGuard)
+    @HttpCode(HttpStatus.OK)
     @Post('login')
     async login(@CurrentUser() user: User) {
         return await this.usersService.login(user)

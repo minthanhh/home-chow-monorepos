@@ -204,6 +204,9 @@ importers:
 
   apps/todos-vue:
     dependencies:
+      '@vee-validate/zod':
+        specifier: ^4.13.2
+        version: 4.13.2(vue@3.4.38(typescript@5.4.5))
       axios:
         specifier: ^1.7.5
         version: 1.7.5
@@ -216,6 +219,9 @@ importers:
       pinia:
         specifier: ^2.1.7
         version: 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
+      vee-validate:
+        specifier: ^4.13.2
+        version: 4.13.2(vue@3.4.38(typescript@5.4.5))
       vue:
         specifier: ^3.4.29
         version: 3.4.38(typescript@5.4.5)
@@ -228,7 +234,16 @@ importers:
       vuetify:
         specifier: ^3.7.0
         version: 3.7.0(typescript@5.4.5)(vue-i18n@9.14.0(vue@3.4.38(typescript@5.4.5)))(vue@3.4.38(typescript@5.4.5))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
+      '@mdi/font':
+        specifier: ^7.4.47
+        version: 7.4.47
+      '@mdi/js':
+        specifier: ^7.4.47
+        version: 7.4.47
       '@playwright/test':
         specifier: ^1.44.1
         version: 1.46.1
@@ -274,6 +289,9 @@ importers:
       jsdom:
         specifier: ^24.1.0
         version: 24.1.1
+      material-design-icons-iconfont:
+        specifier: ^6.7.0
+        version: 6.7.0
       npm-run-all2:
         specifier: ^6.2.0
         version: 6.2.2
@@ -1030,6 +1048,12 @@ packages:
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
 
+  '@mdi/font@7.4.47':
+    resolution: {integrity: sha512-43MtGpd585SNzHZPcYowu/84Vz2a2g31TvPMTm9uTiCSWzaheQySUcSyUH/46fPnuPQWof2yd0pGBtzee/IQWw==}
+
+  '@mdi/js@7.4.47':
+    resolution: {integrity: sha512-KPnNOtm5i2pMabqZxpUz7iQf+mfrYZyKCZ8QNz85czgEt7cuHcGorWfdzUMWYA0SD+a6Hn4FmJ+YhzzzjkTZrQ==}
+
   '@microsoft/tsdoc@0.15.0':
     resolution: {integrity: sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==}
 
@@ -1546,6 +1570,9 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@vee-validate/zod@4.13.2':
+    resolution: {integrity: sha512-y1aqelutD6btX2ayZk3w8udClAykptphlGLwu0vlCqY2r9mrJqMn1EKqtcwXAvEom+ceTcHJOwGr2FUA7i+ZEg==}
 
   '@vitejs/plugin-vue@5.1.2':
     resolution: {integrity: sha512-nY9IwH12qeiJqumTCLJLE7IiNx7HZ39cbHaysEUd+Myvbz9KAqd2yq+U01Kab1R/H1BmiyM2ShTYlNH32Fzo3A==}
@@ -3588,6 +3615,9 @@ packages:
   makeerror@1.0.12:
     resolution: {integrity: sha512-JmqCvUhmt43madlpFzG4BQzG2Z3m6tvQDNKdClZnO3VbIudJYmxsT0FNJMeiB2+JTSlTQTSbU8QdesVmwJcmLg==}
 
+  material-design-icons-iconfont@6.7.0:
+    resolution: {integrity: sha512-lSj71DgVv20kO0kGbs42icDzbRot61gEDBLQACzkUuznRQBUYmbxzEkGU6dNBb5fRWHMaScYlAXX96HQ4/cJWA==}
+
   media-typer@0.3.0:
     resolution: {integrity: sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==}
     engines: {node: '>= 0.6'}
@@ -4751,6 +4781,10 @@ packages:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
     engines: {node: '>=10'}
 
+  type-fest@4.26.0:
+    resolution: {integrity: sha512-OduNjVJsFbifKb57UqZ2EMP1i4u64Xwow3NYXUtBbD4vIwJdQd4+xl8YDou1dlm4DVrtwT/7Ky8z8WyCULVfxw==}
+    engines: {node: '>=16'}
+
   type-is@1.6.18:
     resolution: {integrity: sha512-TkRKr9sUTxEH8MdfuCSP7VizJyzRNMjj2J2do2Jr3Kym598JVdEksuzPQCnlFPW4ky9Q+iA+ma9BGm06XQBy8g==}
     engines: {node: '>= 0.6'}
@@ -4839,6 +4873,11 @@ packages:
   vary@1.1.2:
     resolution: {integrity: sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==}
     engines: {node: '>= 0.8'}
+
+  vee-validate@4.13.2:
+    resolution: {integrity: sha512-HlpR/6MJ92TW9f135umMZKUqdd/tFQTxLNSf2ImbU4Y/MlLVAUpF1l64VdjTOhbClAqPjCb5p/SqHDxLpUHXrw==}
+    peerDependencies:
+      vue: ^3.4.26
 
   vite-hot-client@0.2.3:
     resolution: {integrity: sha512-rOGAV7rUlUHX89fP2p2v0A2WWvV3QMX2UYq0fRqsWSvFvev4atHWqjwGoKaZT1VTKyLGk533ecu3eyd0o59CAg==}
@@ -5153,6 +5192,9 @@ packages:
   yocto-queue@1.1.1:
     resolution: {integrity: sha512-b4JR1PFR10y1mKjhHY9LaGo6tmrgjit7hxVIeAmyMw3jegXR4dhYqLaQF5zMXZxY7tLpMyJeLjr1C4rLmkVe8g==}
     engines: {node: '>=12.20'}
+
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
 snapshots:
 
@@ -5977,6 +6019,10 @@ snapshots:
       - encoding
       - supports-color
 
+  '@mdi/font@7.4.47': {}
+
+  '@mdi/js@7.4.47': {}
+
   '@microsoft/tsdoc@0.15.0': {}
 
   '@nestjs/cli@10.4.4':
@@ -6619,6 +6665,14 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@vee-validate/zod@4.13.2(vue@3.4.38(typescript@5.4.5))':
+    dependencies:
+      type-fest: 4.26.0
+      vee-validate: 4.13.2(vue@3.4.38(typescript@5.4.5))
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - vue
 
   '@vitejs/plugin-vue@5.1.2(vite@5.4.2(@types/node@20.16.1)(terser@5.31.6))(vue@3.4.38(typescript@5.4.5))':
     dependencies:
@@ -9090,6 +9144,8 @@ snapshots:
     dependencies:
       tmpl: 1.0.5
 
+  material-design-icons-iconfont@6.7.0: {}
+
   media-typer@0.3.0: {}
 
   memfs@3.5.3:
@@ -10211,6 +10267,8 @@ snapshots:
 
   type-fest@0.21.3: {}
 
+  type-fest@4.26.0: {}
+
   type-is@1.6.18:
     dependencies:
       media-typer: 0.3.0
@@ -10276,6 +10334,12 @@ snapshots:
   validator@13.12.0: {}
 
   vary@1.1.2: {}
+
+  vee-validate@4.13.2(vue@3.4.38(typescript@5.4.5)):
+    dependencies:
+      '@vue/devtools-api': 6.6.3
+      type-fest: 4.26.0
+      vue: 3.4.38(typescript@5.4.5)
 
   vite-hot-client@0.2.3(vite@5.4.2(@types/node@20.16.1)(terser@5.31.6)):
     dependencies:
@@ -10603,3 +10667,5 @@ snapshots:
   yocto-queue@0.1.0: {}
 
   yocto-queue@1.1.1: {}
+
+  zod@3.23.8: {}

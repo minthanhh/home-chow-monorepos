@@ -6,7 +6,7 @@ const http = axios.create({
   baseURL: BASE_API_URL
 })
 
-axios.interceptors.request.use(
+http.interceptors.request.use(
   async (config) => {
     const token = {
       accessToken: localStorage.getItem('access_token'),
@@ -21,7 +21,7 @@ axios.interceptors.request.use(
   (error) => Promise.reject(error)
 )
 
-axios.interceptors.response.use(
+http.interceptors.response.use(
   (response) => response,
   async (error) => {
     return Promise.reject(error)

@@ -14,5 +14,8 @@ export const configURL = {
   FORGOT_PASSWORD: 'users/forgot-password',
   RESET_PASSWORD: 'users/reset-password',
   LOGIN_GOOGLE: 'users/login-with-google',
-  LOGIN_GITHUB: 'users/github'
+  LOGIN_GITHUB: 'users/github',
+
+  // TODO: user
+  ME: 'users/me'
 }

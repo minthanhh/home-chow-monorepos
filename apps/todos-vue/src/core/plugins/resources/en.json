@@ -5,5 +5,9 @@
   "common_form_label_username_or_email": "Email or username",
   "common_form_placeholder_title_username_or_email": "Enter your email or username",
   "common_form_label_password": "Password",
-  "common_form_placeholder_title_password": "Enter password"
+  "common_form_placeholder_title_password": "Enter password",
+  "common_submit": "Submit",
+  "common_btn_login_title": "Login",
+  "common_btn_register_title": "Register",
+  "common_authenticate_description": "Only employees of homechow can access."
 }

@@ -11,6 +11,10 @@ class AuthenticateService {
     return await http.post(configURL.REGISTER, user)
   }
 
+  async logout() {
+    return await http.post(configURL.LOGOUT)
+  }
+
   async loginWithGoogle() {
     window.location.href = `${BASE_API_URL}${configURL.LOGIN_GOOGLE}`
   }

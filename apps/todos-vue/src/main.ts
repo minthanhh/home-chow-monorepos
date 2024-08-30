@@ -12,6 +12,8 @@ import App from './App.vue'
 import router from './router'
 import { i18n, locale, theme } from './core/plugins'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
+import { userUserStore } from '@/stores'
+import { initializeInterceptors } from './shareds/services'
 
 const app = createApp(App)
 const vuetify = createVuetify({
@@ -31,6 +33,10 @@ const vuetify = createVuetify({
 app.use(i18n)
 app.use(vuetify)
 app.use(createPinia())
+const userStore = userUserStore()
+userStore.initializeToken()
+initializeInterceptors(userStore)
+
 app.use(router)
 
 app.mount('#app')

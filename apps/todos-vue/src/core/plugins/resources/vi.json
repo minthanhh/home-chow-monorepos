@@ -7,6 +7,7 @@
   "common_submit": "Hoàn thành",
   "common_btn_login_title": "Đăng nhập",
   "common_btn_register_title": "Đăng ký",
+  "common_btn_logout_title": "Đăng xuất",
   "common_form_validate_username_or_email_required": "Email hoặc tên tài khoản là bắt buộc",
   "common_form_validate_email": "Phải là một email hợp lệ",
   "common_form_validate_password_requied": "Email hoặc tên tài khoản là bắt buộc",

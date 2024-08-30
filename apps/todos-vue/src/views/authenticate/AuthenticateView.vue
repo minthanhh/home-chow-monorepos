@@ -1,17 +1,20 @@
 <script setup lang="ts">
-import type { AuthenTab } from '@/features/authenticate'
 import { computed, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useLocale } from 'vuetify'
 import { toTypedSchema } from '@vee-validate/zod'
 import { useForm, useField } from 'vee-validate'
 import { mdiEmailOutline, mdiLockOutline } from '@mdi/js'
 import * as zod from 'zod'
-import { authenticateService, userService } from '@/shareds/services'
 import { AxiosError } from 'axios'
+
+import type { AuthenTab } from '@/features/authenticate'
+import { authenticateService, userService } from '@/shareds/services'
 import { userUserStore } from '@/stores'
 
 const { t } = useLocale()
-const { setUser } = userUserStore()
+const { setUser, initializeToken } = userUserStore()
+const router = useRouter()
 
 const { handleSubmit, setFieldError, resetForm } = useForm({
   validationSchema: toTypedSchema(
@@ -46,11 +49,18 @@ const submit = handleSubmit(async (values) => {
 
     if (response.status === 200) {
       const { accessToken, refreshToken } = response.data
+
       localStorage.setItem('access_token', accessToken)
       localStorage.setItem('refresh_token', refreshToken)
+      initializeToken(accessToken, refreshToken)
 
       const userResponse = await userService.me()
-      setUser(userResponse.data)
+
+      if (response.status === 200) {
+        setUser(userResponse.data)
+
+        router.push('/')
+      }
     }
   } catch (error) {
     if (error instanceof AxiosError) {

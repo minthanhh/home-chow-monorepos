@@ -2,9 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import AuthenticateView from '@/views/authenticate/AuthenticateView.vue'
 import { userUserStore } from '@/stores'
-import { authenticateService, http, userService } from '@/shareds/services'
-import { AxiosError } from 'axios'
-import { configURL } from '@/config'
+import { userService } from '@/shareds/services'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -43,9 +41,7 @@ router.beforeEach(async (to) => {
       setUser(response.data)
       return { name: 'home', replace: true }
     } catch (error: any) {
-      if (error.code === 'ERR_NETWORK') {
-        return { name: 'authenticate', replace: true }
-      }
+      return { name: 'authenticate', replace: true }
     }
   }
 

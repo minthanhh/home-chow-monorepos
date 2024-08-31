@@ -1,8 +1,7 @@
 import { BASE_API_URL, configURL } from '@/config'
 import { configure } from 'axios-hooks'
 import axios from 'axios'
-import { userUserStore } from '../../stores/user'
-import { useRouter } from 'vue-router'
+import { userUserStore } from '@/stores'
 
 const http = axios.create({
   baseURL: BASE_API_URL
@@ -11,7 +10,6 @@ const http = axios.create({
 export function initializeInterceptors(userStore: ReturnType<typeof userUserStore>) {
   let isRefreshing = false
   const { initializeToken, logout } = userStore
-  const router = useRouter()
 
   http.interceptors.request.use(
     async (config) => {
@@ -19,8 +17,6 @@ export function initializeInterceptors(userStore: ReturnType<typeof userUserStor
         accessToken: localStorage.getItem('access_token'),
         refreshToken: localStorage.getItem('refresh_token')
       }
-
-      console.log('~ is refreshing = true: ', isRefreshing, { token })
 
       if (token?.accessToken) {
         config.headers.Authorization = `Bearer ${isRefreshing ? token.refreshToken : token?.accessToken}`
@@ -46,12 +42,7 @@ export function initializeInterceptors(userStore: ReturnType<typeof userUserStor
         isRefreshing = true
 
         try {
-          const refreshToken = localStorage.getItem('refresh_token')
-          console.log('~ start refreshing token: ', refreshToken)
           const response = await http.post(configURL.REFRESH_TOKEN)
-
-          console.log('~ end refreshing receive response: ', response)
-
           const accessToken = response.data.accessToken
           // Update the Authorization header with the new access token
           localStorage.setItem('access_token', accessToken)
@@ -65,8 +56,6 @@ export function initializeInterceptors(userStore: ReturnType<typeof userUserStor
           // Handle token refresh failure
           window.localStorage.clear()
           logout()
-          router.push('/login')
-          window.location.reload()
           return Promise.reject(refreshError)
         }
       }

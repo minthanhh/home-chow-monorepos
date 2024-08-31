@@ -30,61 +30,26 @@ const router = createRouter({
   ]
 })
 
-const handleRefreshToken = async () => {
-  try {
-    const refreshToken = localStorage.getItem('refreshToken')
-
-    const response = await http.post(configURL.REFRESH_TOKEN, null, {
-      headers: {
-        Authorization: 'Bearer ' + refreshToken
-      }
-    })
-
-    const accessToken = response.data.accessToken
-    localStorage.setItem('access_token', accessToken)
-    return accessToken
-  } catch (error) {
-    window.localStorage.clear()
-    router.push({ name: 'authenticate' })
-    throw error
-  }
-}
-
 router.beforeEach(async (to) => {
-  const { accessToken, refreshToken, setUser, user, initializeToken, isAuthenticated } =
-    userUserStore()
+  const { accessToken, refreshToken, setUser, user } = userUserStore()
 
-  if ((!accessToken || !refreshToken) && to.name !== 'authenticate') {
+  if ((!accessToken || !refreshToken) && !user && to.name !== 'authenticate') {
     return { name: 'authenticate', replace: true }
   }
 
-  if (!user && accessToken && refreshToken && to.name !== 'authenticate') {
+  if (!user && accessToken && refreshToken) {
     try {
       const response = await userService.me()
       setUser(response.data)
       return { name: 'home', replace: true }
-    } catch (error) {
-      try {
-        const refreshToken = localStorage.getItem('refreshToken')
-
-        const response = await http.post(configURL.REFRESH_TOKEN, null, {
-          headers: {
-            Authorization: 'Bearer ' + refreshToken
-          }
-        })
-
-        const accessToken = response.data.accessToken
-        localStorage.setItem('access_token', accessToken)
-        initializeToken(accessToken)
-        return { name: 'home', replace: true }
-      } catch (error) {
-        window.localStorage.clear()
+    } catch (error: any) {
+      if (error.code === 'ERR_NETWORK') {
         return { name: 'authenticate', replace: true }
       }
     }
   }
 
-  if (user && accessToken && refreshToken && to.name !== 'authenticate') {
+  if (user && accessToken && refreshToken && to.name === 'authenticate') {
     return { name: 'home' }
   }
 })

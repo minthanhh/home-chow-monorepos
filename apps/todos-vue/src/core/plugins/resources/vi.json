@@ -4,6 +4,8 @@
   "common_fogot_password_title": "Quên mật khẩu",
   "common_form_label_username_or_email": "Email hoặc tên tài khoản",
   "common_form_label_password": "Mật khẩu",
+  "common_form_placeholder_title_username_or_email": "Nhập email hoặc tên đăng nhập của bạn",
+  "common_form_placeholder_title_password": "Nhập mật khẩu",
   "common_submit": "Hoàn thành",
   "common_btn_login_title": "Đăng nhập",
   "common_btn_register_title": "Đăng ký",

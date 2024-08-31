@@ -79,14 +79,18 @@ const submit = handleSubmit(async (values) => {
 
 <template>
   <div class="flex w-full h-screen justify-center bg-gray-50 relative">
-    <div class="flex items-start gap-20 mt-60">
-      <div>
+    <div class="flex items-start gap-20 mt-20 md:mt-60 flex-col md:flex-row">
+      <div class="text-center md:text-left">
         <div class="text-h2">Homechow Dashboard</div>
-        <p class="text-left">{{ t('$vuetify.common_authenticate_description') }}</p>
+        <p class="md:text-left sm:text-center mt-2">
+          {{ t('$vuetify.common_authenticate_description') }}
+        </p>
       </div>
 
-      <div class="flex flex-col h-max gap-10 bg-white p-4 rounded shadow-lg">
-        <v-form class="w-[400px] flex flex-col gap-2" @submit.prevent="submit">
+      <div
+        class="flex flex-col h-max w-11/12 md:w-max mx-auto md:mx-0 gap-10 bg-white p-4 rounded shadow-lg"
+      >
+        <v-form class="w-full md:w-[400px] flex flex-col gap-2" @submit.prevent="submit">
           <v-text-field
             v-model="email.value.value"
             :prepend-inner-icon="mdiEmailOutline"

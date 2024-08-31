@@ -1,14 +1,17 @@
 <script setup lang="ts">
 import { useLocale } from 'vuetify'
 import { useRouter } from 'vue-router'
+import { userUserStore } from '@/stores'
 // import { authenticateService } from '../../services/authenticate.service'
 
 const { t } = useLocale()
 const router = useRouter()
+const { logout } = userUserStore()
 
 const onLogout = async () => {
   // const response = await authenticateService.logout()
-  localStorage.removeItem('access_token')
+  localStorage.clear()
+  logout()
   router.push('/login')
 }
 </script>

@@ -31,7 +31,7 @@ export class UsersService {
         const refreshToken = this.jwtService.sign(payload, this.refreshJwtConfigure)
         const refreshTokenExpiration = new Date(Date.now() + +this.refreshJwtConfigure.expiresIn)
 
-        this.mailService.send()
+        // this.mailService.send()
 
         await this.prismaService.user.update({
             where: { id: user.id },

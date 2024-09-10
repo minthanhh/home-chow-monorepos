@@ -15,6 +15,7 @@ datasource db {
 
 // npx prisma migrate dev --name "init"
 
+// #region User
 model User {
   id                     String     @id @default(uuid())
   email                  String     @unique
@@ -30,18 +31,11 @@ model User {
   refreshTokenExpiration DateTime?
   createdAt              DateTime   @default(now())
   updatedAt              DateTime   @updatedAt
-  favoriteMeals          UserMeal[]
+  favoritedMeals         UserMeal[]
+  createdMeals           Meal[]     @relation("UserCreatedMeals") // Quan hệ mới cho meals được tạo
 }
 
-model Meal {
-  id        String     @id @default(uuid())
-  name      String
-  cuisine   String
-  createdAt DateTime   @default(now())
-  updatedAt DateTime   @updatedAt
-  users     UserMeal[]
-}
-
+// #region Intermediry User
 model UserMeal {
   userId    String
   mealId    String
@@ -53,23 +47,58 @@ model UserMeal {
   @@id([userId, mealId])
 }
 
-model Ingredient {
+// #region Meal
+model Meal {
   id        String   @id @default(uuid())
   name      String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Recipe    Recipe?  @relation(fields: [recipeId], references: [id])
-  recipeId  String?
+
+  cuisine   Cuisine @relation(fields: [cuisineId], references: [id])
+  cuisineId String
+
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+  recipeId String
+
+  createdBy   User   @relation("UserCreatedMeals", fields: [createdById], references: [id])
+  createdById String
+
+  preferredBy UserMeal[]
 }
 
+// #region Intermediary Recipe
+model RecipeIngredient {
+  recipeId     String
+  ingredientId String
+  recipe       Recipe     @relation(fields: [recipeId], references: [id])
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  @@id([recipeId, ingredientId]) // Đảm bảo mỗi cặp recipeId và ingredientId là duy nhất
+}
+
+// #region Ingredient
+model Ingredient {
+  id        String             @id @default(uuid())
+  name      String
+  image     String
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  recipes   RecipeIngredient[] // Quan hệ nhiều-nhiều với Recipe thông qua bảng trung gian RecipeIngredient
+}
+
+// #region Recipe
 model Recipe {
-  id          String       @id @default(uuid())
+  id          String             @id @default(uuid())
   description String
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  ingredients Ingredient[]
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  ingredients RecipeIngredient[] // Quan hệ nhiều-nhiều với Ingredient thông qua bảng trung gian RecipeIngredient
+  meals       Meal[]
 }
 
+// #region Cuisine
 model Cuisine {
   id          String   @id @default(uuid())
   name        String   @unique
@@ -77,8 +106,10 @@ model Cuisine {
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  meals       Meal[]
 }
 
+// #region Todo
 model Todo {
   id        String   @id @default(uuid())
   title     String

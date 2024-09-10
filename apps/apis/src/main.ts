@@ -16,7 +16,7 @@ async function bootstrap() {
     app.enableCors({
         allowedHeaders: 'Content-Type,Authorization',
         methods: ['POST', 'PUT', 'GET', 'DELETE'],
-        origin: ['http://localhost:3001'],
+        origin: ['http://localhost:3001', process.env.CLIENT_URL],
         credentials: true,
     })
     app.use(helmet())
@@ -28,6 +28,23 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, config)
     SwaggerModule.setup('api', app, document)
 
+    const shutdown = () => {
+        app.close()
+            .then(() => {
+                console.info('Server successfully shutdown')
+                process.exit(0)
+            })
+            .catch((error) => {
+                console.error('Error occurred during shutdown:', error)
+                process.exit(1)
+            })
+    }
+
+    // Listen for termination signals
+    process.on('SIGTERM', shutdown)
+    process.on('SIGINT', shutdown)
+
     await app.listen(3000)
+    console.info(`Server running on ${await app.getUrl()}`)
 }
 bootstrap()

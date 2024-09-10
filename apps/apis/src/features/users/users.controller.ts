@@ -20,6 +20,7 @@ export class UsersController {
     @UseGuards(RefreshAuthGuard)
     @Post('refresh-token')
     async refreshToken(@CurrentUser() user: User) {
+        console.log('called refreshToken')
         return await this.usersService.refreshToken(user)
     }
 
@@ -40,10 +41,9 @@ export class UsersController {
     @UseGuards(JwtAuthGuard)
     @Get('me')
     async getMe(@CurrentUser() user: User) {
-        const formattedDate = user.refreshTokenExpiration.toLocaleDateString() // Ví dụ: "8/28/2024"
         const formattedTime = user.refreshTokenExpiration.toLocaleTimeString() // Ví dụ: "1:18:18 PM"
 
-        console.log('Formatted', formattedDate, formattedTime)
+        console.log('Formatted', formattedTime)
         return user
     }
 

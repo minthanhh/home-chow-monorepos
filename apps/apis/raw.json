@@ -1,0 +1,49 @@
+{
+    "ingredients": [
+        "5df4d9c4-85be-47d8-b51e-9f0dff934bb3",
+        "ed1ba936-7c8c-4c89-933e-ef74872ac4a8",
+        "49df9948-c12c-4a9c-b48a-2b1b54d42c0c",
+        "b3d94390-7b42-41cc-9c08-ff7e064a489d",
+        "acb5adf5-ee1e-4c37-8ade-6b74f9f2ce51",
+        "f3b751d7-aa0f-4472-ab0f-bc164da6046d",
+        {
+            "name": "New Ingredients",
+            "image": "https://static01.nyt.com/images/2016/10/07/science/salmon-ask-well/salmon-ask-well-facebookJumbo.jpg"
+        }
+    ],
+    "create-cuisine": {
+        "name": "New Cuisine",
+        "icon": "https://static01.nyt.com/images/2016/10/07/science/salmon-ask-well/salmon-ask-well-facebookJumbo.jpg"
+    },
+    "create-meal": [
+        {
+            "cuisineId": "53ed7028-826e-4d08-bd36-c70f2aa80282",
+            "recipeId": "",
+            "name": "New Meal",
+            "recipeDescription": "New Recipe Description",
+            "ingredients": [
+                "5df4d9c4-85be-47d8-b51e-9f0dff934bb3",
+                "ed1ba936-7c8c-4c89-933e-ef74872ac4a8",
+                "49df9948-c12c-4a9c-b48a-2b1b54d42c0c",
+                "b3d94390-7b42-41cc-9c08-ff7e064a489d",
+                "acb5adf5-ee1e-4c37-8ade-6b74f9f2ce51",
+                "f3b751d7-aa0f-4472-ab0f-bc164da6046d"
+            ]
+        },
+        {
+            "userId": "a822faa1-06b2-4b24-8067-aa58f09537b7",
+            "cuisineId": "53ed7028-826e-4d08-bd36-c70f2aa80282",
+            "recipeId": "a3fc15c8-ca96-4ad8-bb84-cd3cfce9edac",
+            "name": "New Meal",
+            "recipeDescription": "",
+            "ingredients": [
+                "5df4d9c4-85be-47d8-b51e-9f0dff934bb3",
+                "ed1ba936-7c8c-4c89-933e-ef74872ac4a8",
+                "49df9948-c12c-4a9c-b48a-2b1b54d42c0c",
+                "b3d94390-7b42-41cc-9c08-ff7e064a489d",
+                "acb5adf5-ee1e-4c37-8ade-6b74f9f2ce51",
+                "f3b751d7-aa0f-4472-ab0f-bc164da6046d"
+            ]
+        }
+    ]
+}

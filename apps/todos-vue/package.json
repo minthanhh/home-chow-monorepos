@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@vee-validate/zod": "^4.13.2",
+    "@vueuse/core": "^11.0.3",
     "axios": "^1.7.5",
     "axios-hooks": "^5.0.2",
     "lru-cache": "^11.0.0",

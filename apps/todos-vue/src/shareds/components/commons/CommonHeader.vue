@@ -17,9 +17,12 @@ const onLogout = async () => {
 </script>
 
 <template>
-  <header class="flex items-center justify-center h-14 shadow-md px-4">
-    <div class="ml-auto">
-      <v-btn @click="onLogout">{{ t('$vuetify.common_btn_logout_title') }}</v-btn>
-    </div>
+  <header class="w-full flex items-center justify-between h-14 shadow-md px-4">
+    <v-img
+      aspect-ratio="16/9"
+      :max-width="120"
+      src="https://homechow.co/wp-content/uploads/2023/02/Group-34502.svg"
+    />
+    <v-btn @click="onLogout">{{ t('$vuetify.common_btn_logout_title') }}</v-btn>
   </header>
 </template>

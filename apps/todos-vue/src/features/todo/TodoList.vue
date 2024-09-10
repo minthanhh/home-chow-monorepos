@@ -62,6 +62,78 @@ const { t } = useLocale()
         :on-delete-todo="onDeleteTodo"
         :on-edit-todo="onEditTodo"
       />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
+
+      <TodoItem
+        v-for="todo of todos"
+        :key="todo.id"
+        :todo="todo"
+        :loading="loading"
+        :on-delete-todo="onDeleteTodo"
+        :on-edit-todo="onEditTodo"
+      />
     </ul>
   </div>
 </template>

@@ -1,4 +1,4 @@
-import { ConflictException, Injectable, NotFoundException } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { CreateCuisineDto } from './dto/create-cuisine.dto'
 import { UpdateCuisineDto } from './dto/update-cuisine.dto'
 import { PrismaService } from 'src/shareds'
@@ -8,39 +8,32 @@ export class CuisinesService {
     constructor(private readonly prismaService: PrismaService) {}
 
     async create(createCuisineDto: CreateCuisineDto) {
-        const exists = await this.findOneByName(createCuisineDto.name)
-
-        if (exists) throw new ConflictException(`${createCuisineDto.name} already exists`)
-
-        return await this.prismaService.cuisine.create({
-            data: createCuisineDto,
-        })
+        return await this.prismaService.cuisine.create({ data: createCuisineDto })
     }
 
-    findAll() {
-        return `This action returns all cuisines`
+    async findAll() {
+        return await this.prismaService.cuisine.findMany()
     }
 
     async findOneById(id: string) {
-        return await this.prismaService.cuisine.findUnique({ where: { id } })
+        const existing = await this.prismaService.cuisine.findUnique({ where: { id } })
+        if (!existing) throw new NotFoundException(`Cuisine ${id} not found`)
+        return existing
     }
 
     async findOneByName(name: string) {
-        return await this.prismaService.cuisine.findUnique({ where: { name } })
+        const existing = await this.prismaService.cuisine.findUnique({ where: { name } })
+        if (!existing) throw new NotFoundException(`Cuisine ${name} not found`)
+        return existing
     }
 
     async update(id: string, updateCuisineDto: UpdateCuisineDto) {
-        await this.recordExists(id)
+        await this.findOneById(id)
         return await this.prismaService.cuisine.update({ where: { id }, data: updateCuisineDto })
     }
 
     async remove(id: string) {
-        await this.recordExists(id)
+        await this.findOneById(id)
         return await this.prismaService.cuisine.delete({ where: { id } })
-    }
-
-    private async recordExists(id: string) {
-        const exists = await this.findOneById(id)
-        if (!exists) throw new NotFoundException(`Cuisine ${id} not found`)
     }
 }

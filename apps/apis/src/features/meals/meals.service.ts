@@ -93,9 +93,18 @@ export class MealsService {
         return `This action removes a #${id} meal`
     }
 
-    async updateFavoriteMeal(id: string, user: User) {
-        const preferredByExists = await this.prismaService.userMeal.findFirst({ where: { AND: [{ mealId: id }, { userId: user.id }] } })
+    async updateFavoriteMeal(mealId: string, userId: string) {
+        const args = {
+            where: {
+                userId_mealId: { mealId, userId },
+            },
+        }
 
-        // if (preferredByExists) await this.prismaService.meal.update({})
+        const preferredByExists = await this.prismaService.userMeal.findUnique(args)
+
+        if (preferredByExists) await this.prismaService.userMeal.delete(args)
+        else await this.prismaService.userMeal.create({ data: { mealId, userId } })
+
+        return 'Successfully updated favorite meal'
     }
 }

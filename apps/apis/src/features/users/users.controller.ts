@@ -1,17 +1,20 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Req, Res, UseGuards } from '@nestjs/common'
 import { Request, Response } from 'express'
 import { GoogleOAuthGuard, JwtAuthGuard, LocalAuthGuard, RefreshAuthGuard } from './guards'
-import { CreateUserDto } from './dtos'
+import { CreateUserDto, LoginUserDto } from './dtos'
 import { UsersService } from './users.service'
 import { CurrentUser } from 'src/shareds'
 import { User } from '@prisma/client'
+import { ApiBody, ApiTags, ApiParam } from '@nestjs/swagger'
 
+@ApiTags('users')
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @UseGuards(LocalAuthGuard)
     @HttpCode(HttpStatus.OK)
+    @ApiBody({ type: LoginUserDto, required: true })
     @Post('login')
     async login(@CurrentUser() user: User) {
         return await this.usersService.login(user)
@@ -47,11 +50,13 @@ export class UsersController {
         return user
     }
 
+    @ApiBody({ type: CreateUserDto, required: true })
     @Post('create-user')
     async createUser(@Body() createUser: CreateUserDto) {
         return await this.usersService.createUser(createUser)
     }
 
+    @ApiParam({ name: 'id', description: 'Id of the user', required: true })
     @Get('user-info/:id')
     async getUserInfo(@Param('id') userId: string) {
         return await this.usersService.getUser(userId)

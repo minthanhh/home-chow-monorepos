@@ -33,9 +33,9 @@
         {
             "userId": "2e4d9bf9-97d5-405d-b7da-78a22de7b65a",
             "cuisineId": "53ed7028-826e-4d08-bd36-c70f2aa80282",
-            "recipeId": "a3fc15c8-ca96-4ad8-bb84-cd3cfce9edac",
+            "recipeId": "",
             "name": "New Meal",
-            "recipeDescription": "",
+            "recipeDescription": "Nutritu",
             "ingredients": [
                 "5df4d9c4-85be-47d8-b51e-9f0dff934bb3",
                 "ed1ba936-7c8c-4c89-933e-ef74872ac4a8",

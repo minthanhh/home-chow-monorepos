@@ -1,6 +1,7 @@
 import { uuidRegex } from '../constants'
+import { Ingredient } from '@prisma/client'
 
-type IngredientType = { image: string; name: string }
+type IngredientType = Omit<Ingredient, 'id' | 'createdAt' | 'updatedAt'>
 type UuidNamePairsType = Array<string | IngredientType>
 
 /**

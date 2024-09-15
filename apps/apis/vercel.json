@@ -1,6 +1,6 @@
 {
     "builds": {
-        "src": "apps/api/package.json",
+        "src": "apps/apis/package.json",
         "use": "@vercel/node",
         "config": {
             "includeFiles": ["apps/apis/prisma/**", "apps/apis/node_modules/@prisma/client/**", "apps/apis/node_modules/.prisma/client/**"]

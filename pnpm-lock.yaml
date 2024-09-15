@@ -32,6 +32,9 @@ importers:
 
   apps/apis:
     dependencies:
+      '@nestjs/cache-manager':
+        specifier: ^2.2.2
+        version: 2.2.2(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.1(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(cache-manager@5.7.6)(rxjs@7.8.1)
       '@nestjs/common':
         specifier: ^10.0.0
         version: 10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
@@ -57,11 +60,14 @@ importers:
         specifier: ^6.2.1
         version: 6.2.1(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.1(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(reflect-metadata@0.2.2)
       '@prisma/client':
-        specifier: ^5.19.0
-        version: 5.19.0(prisma@5.19.0)
+        specifier: ^5.19.1
+        version: 5.19.1(prisma@5.19.1)
       bcrypt:
         specifier: ^5.1.1
         version: 5.1.1
+      cache-manager:
+        specifier: ^5.7.6
+        version: 5.7.6
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -178,8 +184,8 @@ importers:
         specifier: ^3.0.0
         version: 3.3.3
       prisma:
-        specifier: ^5.19.0
-        version: 5.19.0
+        specifier: ^5.19.1
+        version: 5.19.1
       source-map-support:
         specifier: ^0.5.21
         version: 0.5.21
@@ -207,6 +213,9 @@ importers:
       '@vee-validate/zod':
         specifier: ^4.13.2
         version: 4.13.2(vue@3.4.38(typescript@5.4.5))
+      '@vueuse/core':
+        specifier: ^11.0.3
+        version: 11.0.3(vue@3.4.38(typescript@5.4.5))
       axios:
         specifier: ^1.7.5
         version: 1.7.5
@@ -304,82 +313,6 @@ importers:
       tailwindcss:
         specifier: ^3.4.10
         version: 3.4.10(ts-node@10.9.2(@types/node@20.16.1)(typescript@5.4.5))
-      typescript:
-        specifier: ~5.4.0
-        version: 5.4.5
-      vite:
-        specifier: ^5.3.1
-        version: 5.4.2(@types/node@20.16.1)(terser@5.31.6)
-      vite-plugin-vue-devtools:
-        specifier: ^7.3.1
-        version: 7.3.8(rollup@4.21.0)(vite@5.4.2(@types/node@20.16.1)(terser@5.31.6))(vue@3.4.38(typescript@5.4.5))
-      vitest:
-        specifier: ^1.6.0
-        version: 1.6.0(@types/node@20.16.1)(jsdom@24.1.1)(terser@5.31.6)
-      vue-tsc:
-        specifier: ^2.0.21
-        version: 2.0.29(typescript@5.4.5)
-
-  apps/todos-with-vues:
-    dependencies:
-      pinia:
-        specifier: ^2.1.7
-        version: 2.2.2(typescript@5.4.5)(vue@3.4.38(typescript@5.4.5))
-      vue:
-        specifier: ^3.4.29
-        version: 3.4.38(typescript@5.4.5)
-      vue-router:
-        specifier: ^4.3.3
-        version: 4.4.3(vue@3.4.38(typescript@5.4.5))
-    devDependencies:
-      '@playwright/test':
-        specifier: ^1.44.1
-        version: 1.46.1
-      '@rushstack/eslint-patch':
-        specifier: ^1.8.0
-        version: 1.10.4
-      '@tsconfig/node20':
-        specifier: ^20.1.4
-        version: 20.1.4
-      '@types/jsdom':
-        specifier: ^21.1.7
-        version: 21.1.7
-      '@types/node':
-        specifier: ^20.14.5
-        version: 20.16.1
-      '@vitejs/plugin-vue':
-        specifier: ^5.0.5
-        version: 5.1.2(vite@5.4.2(@types/node@20.16.1)(terser@5.31.6))(vue@3.4.38(typescript@5.4.5))
-      '@vue/eslint-config-prettier':
-        specifier: ^9.0.0
-        version: 9.0.0(@types/eslint@9.6.0)(eslint@8.57.0)(prettier@3.3.3)
-      '@vue/eslint-config-typescript':
-        specifier: ^13.0.0
-        version: 13.0.0(eslint-plugin-vue@9.27.0(eslint@8.57.0))(eslint@8.57.0)(typescript@5.4.5)
-      '@vue/test-utils':
-        specifier: ^2.4.6
-        version: 2.4.6
-      '@vue/tsconfig':
-        specifier: ^0.5.1
-        version: 0.5.1
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      eslint-plugin-playwright:
-        specifier: ^1.6.2
-        version: 1.6.2(eslint@8.57.0)
-      eslint-plugin-vue:
-        specifier: ^9.23.0
-        version: 9.27.0(eslint@8.57.0)
-      jsdom:
-        specifier: ^24.1.0
-        version: 24.1.1
-      npm-run-all2:
-        specifier: ^6.2.0
-        version: 6.2.2
-      prettier:
-        specifier: ^3.2.5
-        version: 3.3.3
       typescript:
         specifier: ~5.4.0
         version: 5.4.5
@@ -1057,6 +990,14 @@ packages:
   '@microsoft/tsdoc@0.15.0':
     resolution: {integrity: sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==}
 
+  '@nestjs/cache-manager@2.2.2':
+    resolution: {integrity: sha512-+n7rpU1QABeW2WV17Dl1vZCG3vWjJU1MaamWgZvbGxYE9EeCM0lVLfw3z7acgDTNwOy+K68xuQPoIMxD0bhjlA==}
+    peerDependencies:
+      '@nestjs/common': ^9.0.0 || ^10.0.0
+      '@nestjs/core': ^9.0.0 || ^10.0.0
+      cache-manager: <=5
+      rxjs: ^7.0.0
+
   '@nestjs/cli@10.4.4':
     resolution: {integrity: sha512-WKERbSZJGof0+9XeeMmWnb/9FpNxogcB5eTJTHjc9no0ymdTw3jTzT+KZL9iC/hGqBpuomDLaNFCYbAOt29nBw==}
     engines: {node: '>= 16.14'}
@@ -1214,8 +1155,8 @@ packages:
   '@polka/url@1.0.0-next.25':
     resolution: {integrity: sha512-j7P6Rgr3mmtdkeDGTe0E/aYyWEWVtc5yFXtHCRHs28/jptDEWfaVOc5T7cblqy1XKPPfCxJc/8DwQ5YgLOZOVQ==}
 
-  '@prisma/client@5.19.0':
-    resolution: {integrity: sha512-CzOpau+q1kEWQyoQMvlnXIHqPvwmWbh48xZ4n8KWbAql0p8PC0BIgSTYW5ncxXa4JSEff0tcoxSZB874wDstdg==}
+  '@prisma/client@5.19.1':
+    resolution: {integrity: sha512-x30GFguInsgt+4z5I4WbkZP2CGpotJMUXy+Gl/aaUjHn2o1DnLYNTA+q9XdYmAQZM8fIIkvUiA2NpgosM3fneg==}
     engines: {node: '>=16.13'}
     peerDependencies:
       prisma: '*'
@@ -1223,20 +1164,20 @@ packages:
       prisma:
         optional: true
 
-  '@prisma/debug@5.19.0':
-    resolution: {integrity: sha512-+b/G0ubAZlrS+JSiDhXnYV5DF/aTJ3pinktkiV/L4TtLRLZO6SVGyFELgxBsicCTWJ2ZMu5vEV/jTtYCdjFTRA==}
+  '@prisma/debug@5.19.1':
+    resolution: {integrity: sha512-lAG6A6QnG2AskAukIEucYJZxxcSqKsMK74ZFVfCTOM/7UiyJQi48v6TQ47d6qKG3LbMslqOvnTX25dj/qvclGg==}
 
-  '@prisma/engines-version@5.19.0-31.5fe21811a6ba0b952a3bc71400666511fe3b902f':
-    resolution: {integrity: sha512-GimI9aZIFy/yvvR11KfXRn3pliFn1QAkdebVlsXlnoh5uk0YhLblVmeYiHfsu+wDA7BeKqYT4sFfzg8mutzuWw==}
+  '@prisma/engines-version@5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3':
+    resolution: {integrity: sha512-xR6rt+z5LnNqTP5BBc+8+ySgf4WNMimOKXRn6xfNRDSpHvbOEmd7+qAOmzCrddEc4Cp8nFC0txU14dstjH7FXA==}
 
-  '@prisma/engines@5.19.0':
-    resolution: {integrity: sha512-UtW+0m4HYoRSSR3LoDGKF3Ud4BSMWYlLEt4slTnuP1mI+vrV3zaDoiAPmejdAT76vCN5UqnWURbkXxf66nSylQ==}
+  '@prisma/engines@5.19.1':
+    resolution: {integrity: sha512-kR/PoxZDrfUmbbXqqb8SlBBgCjvGaJYMCOe189PEYzq9rKqitQ2fvT/VJ8PDSe8tTNxhc2KzsCfCAL+Iwm/7Cg==}
 
-  '@prisma/fetch-engine@5.19.0':
-    resolution: {integrity: sha512-oOiPNtmJX0cP/ebu7BBEouJvCw8T84/MFD/Hf2zlqjxkK4ojl38bB9i9J5LAxotL6WlYVThKdxc7HqoWnPOhqQ==}
+  '@prisma/fetch-engine@5.19.1':
+    resolution: {integrity: sha512-pCq74rtlOVJfn4pLmdJj+eI4P7w2dugOnnTXpRilP/6n5b2aZiA4ulJlE0ddCbTPkfHmOL9BfaRgA8o+1rfdHw==}
 
-  '@prisma/get-platform@5.19.0':
-    resolution: {integrity: sha512-s9DWkZKnuP4Y8uy6yZfvqQ/9X3/+2KYf3IZUVZz5OstJdGBJrBlbmIuMl81917wp5TuK/1k2TpHNCEdpYLPKmg==}
+  '@prisma/get-platform@5.19.1':
+    resolution: {integrity: sha512-sCeoJ+7yt0UjnR+AXZL7vXlg5eNxaFOwC23h0KvW1YIXUoa7+W2ZcAUhoEQBmJTW4GrFqCuZ8YSP0mkDa4k3Zg==}
 
   '@rollup/pluginutils@5.1.0':
     resolution: {integrity: sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==}
@@ -1504,6 +1445,9 @@ packages:
   '@types/validator@13.12.0':
     resolution: {integrity: sha512-nH45Lk7oPIJ1RVOF6JgFI6Dy0QpHEzq4QecZhvguxYPDwT8c93prCMqAtiIttm39voZ+DDR+qkNnMpJmMBRqag==}
 
+  '@types/web-bluetooth@0.0.20':
+    resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
+
   '@types/yargs-parser@21.0.3':
     resolution: {integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ==}
 
@@ -1697,6 +1641,15 @@ packages:
 
   '@vue/tsconfig@0.5.1':
     resolution: {integrity: sha512-VcZK7MvpjuTPx2w6blwnwZAu5/LgBUtejFOi3pPGQFXQN5Ela03FUtd2Qtg4yWGGissVL0dr6Ro1LfOFh+PCuQ==}
+
+  '@vueuse/core@11.0.3':
+    resolution: {integrity: sha512-RENlh64+SYA9XMExmmH1a3TPqeIuJBNNB/63GT35MZI+zpru3oMRUA6cEFr9HmGqEgUisurwGwnIieF6qu3aXw==}
+
+  '@vueuse/metadata@11.0.3':
+    resolution: {integrity: sha512-+FtbO4SD5WpsOcQTcC0hAhNlOid6QNLzqedtquTtQ+CRNBoAt9GuV07c6KNHK1wCmlq8DFPwgiLF2rXwgSHX5Q==}
+
+  '@vueuse/shared@11.0.3':
+    resolution: {integrity: sha512-0rY2m6HS5t27n/Vp5cTDsKTlNnimCqsbh/fmT2LgE+aaU42EMfXo8+bNX91W9I7DDmxfuACXMmrd7d79JxkqWA==}
 
   '@webassemblyjs/ast@1.12.1':
     resolution: {integrity: sha512-EKfMUOPRRUTy5UII4qJDGPpqfwjOmZ5jeGFwid9mnoqIFK+e0vqoi1qH56JpmZSzEL53jKnNzScdmftJyG5xWg==}
@@ -2026,6 +1979,10 @@ packages:
   cac@6.7.14:
     resolution: {integrity: sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==}
     engines: {node: '>=8'}
+
+  cache-manager@5.7.6:
+    resolution: {integrity: sha512-wBxnBHjDxF1RXpHCBD6HGvKER003Ts7IIm0CHpggliHzN1RZditb7rXoduE1rplc2DEFYKxhLKgFuchXMJje9w==}
+    engines: {node: '>= 18'}
 
   call-bind@1.0.7:
     resolution: {integrity: sha512-GHTSNSYICQ7scH7sZ+M2rFopRoLh8t2bLSW6BbgrtLsahOIB5iyAVJf9GjWK3cYTDaMj4XdBpM1cA6pIS0Kv2w==}
@@ -3521,6 +3478,9 @@ packages:
   lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
 
+  lodash.clonedeep@4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
+
   lodash.includes@4.3.0:
     resolution: {integrity: sha512-W3Bx6mdkRTGtlJISOvVD/lbqjTlPPUDTMnlXZFnVwi9NKJ6tiAk6LVdlhZMm17VZisqhKcgzpO5Wz91PCt5b0w==}
 
@@ -4143,13 +4103,17 @@ packages:
     resolution: {integrity: sha512-Pdlw/oPxN+aXdmM9R00JVC9WVFoCLTKJvDVLgmJ+qAffBMxsV85l/Lu7sNx4zSzPyoL2euImuEwHhOXdEgNFZQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  prisma@5.19.0:
-    resolution: {integrity: sha512-Pu7lUKpVyTx8cVwM26dYh8NdvMOkMnJXzE8L6cikFuR4JwyMU5NKofQkWyxJKlTT4fNjmcnibTvklV8oVMrn+g==}
+  prisma@5.19.1:
+    resolution: {integrity: sha512-c5K9MiDaa+VAAyh1OiYk76PXOme9s3E992D7kvvIOhCrNsBQfy2mP2QAQtX0WNj140IgG++12kwZpYB9iIydNQ==}
     engines: {node: '>=16.13'}
     hasBin: true
 
   process-nextick-args@2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
+
+  promise-coalesce@1.1.2:
+    resolution: {integrity: sha512-zLaJ9b8hnC564fnJH6NFSOGZYYdzrAJn2JUUIwzoQb32fG2QAakpDNM+CZo1km6keXkRXRM+hml1BFAPVnPkxg==}
+    engines: {node: '>=16'}
 
   prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
@@ -6025,6 +5989,13 @@ snapshots:
 
   '@microsoft/tsdoc@0.15.0': {}
 
+  '@nestjs/cache-manager@2.2.2(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/core@10.4.1(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(cache-manager@5.7.6)(rxjs@7.8.1)':
+    dependencies:
+      '@nestjs/common': 10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      '@nestjs/core': 10.4.1(@nestjs/common@10.4.1(class-transformer@0.5.1)(class-validator@0.14.1)(reflect-metadata@0.2.2)(rxjs@7.8.1))(@nestjs/platform-express@10.4.1)(reflect-metadata@0.2.2)(rxjs@7.8.1)
+      cache-manager: 5.7.6
+      rxjs: 7.8.1
+
   '@nestjs/cli@10.4.4':
     dependencies:
       '@angular-devkit/core': 17.3.8(chokidar@3.6.0)
@@ -6201,30 +6172,30 @@ snapshots:
 
   '@polka/url@1.0.0-next.25': {}
 
-  '@prisma/client@5.19.0(prisma@5.19.0)':
+  '@prisma/client@5.19.1(prisma@5.19.1)':
     optionalDependencies:
-      prisma: 5.19.0
+      prisma: 5.19.1
 
-  '@prisma/debug@5.19.0': {}
+  '@prisma/debug@5.19.1': {}
 
-  '@prisma/engines-version@5.19.0-31.5fe21811a6ba0b952a3bc71400666511fe3b902f': {}
+  '@prisma/engines-version@5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3': {}
 
-  '@prisma/engines@5.19.0':
+  '@prisma/engines@5.19.1':
     dependencies:
-      '@prisma/debug': 5.19.0
-      '@prisma/engines-version': 5.19.0-31.5fe21811a6ba0b952a3bc71400666511fe3b902f
-      '@prisma/fetch-engine': 5.19.0
-      '@prisma/get-platform': 5.19.0
+      '@prisma/debug': 5.19.1
+      '@prisma/engines-version': 5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3
+      '@prisma/fetch-engine': 5.19.1
+      '@prisma/get-platform': 5.19.1
 
-  '@prisma/fetch-engine@5.19.0':
+  '@prisma/fetch-engine@5.19.1':
     dependencies:
-      '@prisma/debug': 5.19.0
-      '@prisma/engines-version': 5.19.0-31.5fe21811a6ba0b952a3bc71400666511fe3b902f
-      '@prisma/get-platform': 5.19.0
+      '@prisma/debug': 5.19.1
+      '@prisma/engines-version': 5.19.1-2.69d742ee20b815d88e17e54db4a2a7a3b30324e3
+      '@prisma/get-platform': 5.19.1
 
-  '@prisma/get-platform@5.19.0':
+  '@prisma/get-platform@5.19.1':
     dependencies:
-      '@prisma/debug': 5.19.0
+      '@prisma/debug': 5.19.1
 
   '@rollup/pluginutils@5.1.0(rollup@4.21.0)':
     dependencies:
@@ -6507,6 +6478,8 @@ snapshots:
   '@types/tough-cookie@4.0.5': {}
 
   '@types/validator@13.12.0': {}
+
+  '@types/web-bluetooth@0.0.20': {}
 
   '@types/yargs-parser@21.0.3': {}
 
@@ -6876,6 +6849,25 @@ snapshots:
       vue-component-type-helpers: 2.0.29
 
   '@vue/tsconfig@0.5.1': {}
+
+  '@vueuse/core@11.0.3(vue@3.4.38(typescript@5.4.5))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.20
+      '@vueuse/metadata': 11.0.3
+      '@vueuse/shared': 11.0.3(vue@3.4.38(typescript@5.4.5))
+      vue-demi: 0.14.10(vue@3.4.38(typescript@5.4.5))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+
+  '@vueuse/metadata@11.0.3': {}
+
+  '@vueuse/shared@11.0.3(vue@3.4.38(typescript@5.4.5))':
+    dependencies:
+      vue-demi: 0.14.10(vue@3.4.38(typescript@5.4.5))
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
 
   '@webassemblyjs/ast@1.12.1':
     dependencies:
@@ -7268,6 +7260,13 @@ snapshots:
   bytes@3.1.2: {}
 
   cac@6.7.14: {}
+
+  cache-manager@5.7.6:
+    dependencies:
+      eventemitter3: 5.0.1
+      lodash.clonedeep: 4.5.0
+      lru-cache: 10.4.3
+      promise-coalesce: 1.1.2
 
   call-bind@1.0.7:
     dependencies:
@@ -9061,6 +9060,8 @@ snapshots:
 
   lodash.camelcase@4.3.0: {}
 
+  lodash.clonedeep@4.5.0: {}
+
   lodash.includes@4.3.0: {}
 
   lodash.isboolean@3.0.3: {}
@@ -9595,13 +9596,15 @@ snapshots:
       ansi-styles: 5.2.0
       react-is: 18.3.1
 
-  prisma@5.19.0:
+  prisma@5.19.1:
     dependencies:
-      '@prisma/engines': 5.19.0
+      '@prisma/engines': 5.19.1
     optionalDependencies:
       fsevents: 2.3.3
 
   process-nextick-args@2.0.1: {}
+
+  promise-coalesce@1.1.2: {}
 
   prompts@2.4.2:
     dependencies:

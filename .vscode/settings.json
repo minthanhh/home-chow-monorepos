@@ -1,0 +1,10 @@
+{
+    "makefile.configurations": [
+        {
+            "makeArgs": [
+                "make"
+            ],
+            "name": "Unnamed configuration 1"
+        }
+    ]
+}

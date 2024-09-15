@@ -9,7 +9,8 @@
         "format": "prettier --write .",
         "prepare": "husky install",
         "apis": "pnpm --filter apis start:dev",
-        "vue": "pnpm --filter todos-vue dev"
+        "vue": "pnpm --filter todos-vue dev",
+        "build:all": "pnpm run --parallel build"
     },
     "keywords": [],
     "author": "",

@@ -8,27 +8,27 @@ export class NutritionalValuesController {
     constructor(private readonly nutritionalValuesService: NutritionalValuesService) {}
 
     @Post()
-    create(@Body() createNutritionalValueDto: CreateNutritionalValueDto) {
-        return this.nutritionalValuesService.create(createNutritionalValueDto)
+    async create(@Body() createNutritionalValueDto: CreateNutritionalValueDto) {
+        return await this.nutritionalValuesService.create(createNutritionalValueDto)
     }
 
     @Get()
-    findAll() {
-        return this.nutritionalValuesService.findAll()
+    async findAll() {
+        return await this.nutritionalValuesService.findAll()
     }
 
     @Get(':id')
-    findOne(@Param('id') id: string) {
-        return this.nutritionalValuesService.findOne(+id)
+    async findOne(@Param('id') id: string) {
+        return await this.nutritionalValuesService.findOne(+id)
     }
 
     @Patch(':id')
-    update(@Param('id') id: string, @Body() updateNutritionalValueDto: UpdateNutritionalValueDto) {
-        return this.nutritionalValuesService.update(+id, updateNutritionalValueDto)
+    async update(@Param('id') id: string, @Body() updateNutritionalValueDto: UpdateNutritionalValueDto) {
+        return await this.nutritionalValuesService.update(+id, updateNutritionalValueDto)
     }
 
     @Delete(':id')
-    remove(@Param('id') id: string) {
-        return this.nutritionalValuesService.remove(+id)
+    async remove(@Param('id') id: string) {
+        return await this.nutritionalValuesService.remove(+id)
     }
 }

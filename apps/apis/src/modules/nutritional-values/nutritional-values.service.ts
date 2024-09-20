@@ -4,23 +4,23 @@ import { UpdateNutritionalValueDto } from './dtos/update-nutritional-value.dto'
 
 @Injectable()
 export class NutritionalValuesService {
-    create(createNutritionalValueDto: CreateNutritionalValueDto) {
+    async create(createNutritionalValueDto: CreateNutritionalValueDto) {
         return 'This action adds a new nutritionalValue'
     }
 
-    findAll() {
+    async findAll() {
         return `This action returns all nutritionalValues`
     }
 
-    findOne(id: number) {
+    async findOne(id: number) {
         return `This action returns a #${id} nutritionalValue`
     }
 
-    update(id: number, updateNutritionalValueDto: UpdateNutritionalValueDto) {
+    async update(id: number, updateNutritionalValueDto: UpdateNutritionalValueDto) {
         return `This action updates a #${id} nutritionalValue`
     }
 
-    remove(id: number) {
+    async remove(id: number) {
         return `This action removes a #${id} nutritionalValue`
     }
 }

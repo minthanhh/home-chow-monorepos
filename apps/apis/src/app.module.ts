@@ -10,6 +10,8 @@ import { RecipesModule } from './modules/recipes/recipes.module'
 import { CuisinesModule } from './modules/cuisines/cuisines.module'
 import { CacheModule } from '@nestjs/cache-manager'
 import { NutritionalValuesModule } from './modules/nutritional-values/nutritional-values.module'
+import { BlogsModule } from './modules/blogs/blogs.module'
+import { OrdersModule } from './modules/orders/orders.module'
 
 @Module({
     imports: [
@@ -24,6 +26,8 @@ import { NutritionalValuesModule } from './modules/nutritional-values/nutritiona
         RecipesModule,
         CuisinesModule,
         NutritionalValuesModule,
+        BlogsModule,
+        OrdersModule,
     ],
 })
 export class AppModule {}

@@ -1,10 +1,11 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UseGuards } from '@nestjs/common'
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors, UseGuards, UploadedFile } from '@nestjs/common'
 import { CuisinesService } from './cuisines.service'
 import { CreateCuisineDto } from './dtos/create-cuisine.dto'
 import { UpdateCuisineDto } from './dtos/update-cuisine.dto'
 import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger'
 import { CacheInterceptor, CacheKey, CacheTTL } from '@nestjs/cache-manager'
 import { JwtAuthGuard } from '../users'
+import { FileInterceptor } from '@nestjs/platform-express'
 
 @ApiTags('cuisines')
 @Controller('cuisines')
@@ -12,10 +13,11 @@ import { JwtAuthGuard } from '../users'
 export class CuisinesController {
     constructor(private readonly cuisinesService: CuisinesService) {}
 
+    @UseInterceptors(FileInterceptor('icon'))
     @ApiBody({ type: CreateCuisineDto, required: true })
     @Post()
-    async create(@Body() createCuisineDto: CreateCuisineDto) {
-        return await this.cuisinesService.create(createCuisineDto)
+    async create(@Body() createCuisineDto: CreateCuisineDto, @UploadedFile() icon: Express.Multer.File) {
+        return await this.cuisinesService.create(createCuisineDto, icon)
     }
 
     @UseInterceptors(CacheInterceptor)
@@ -23,7 +25,6 @@ export class CuisinesController {
     @CacheKey('CACHE_CUISINES')
     @Get()
     async findAll() {
-        console.log('Access to controller')
         return await this.cuisinesService.findAll()
     }
 

@@ -1,10 +1,16 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put } from '@nestjs/common'
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Res, UploadedFile, UseInterceptors } from '@nestjs/common'
 import { TodosService } from './todos.service'
 import { CreateTodoDto, UpdateTodoDto } from './dtos'
+import { FileInterceptor } from '@nestjs/platform-express'
+import { PrismaService } from 'src/shareds'
+import { Response } from 'express'
 
 @Controller('todos')
 export class TodosController {
-    constructor(private readonly todosService: TodosService) {}
+    constructor(
+        private readonly todosService: TodosService,
+        private readonly prismaService: PrismaService,
+    ) {}
 
     @Get('get-todos')
     async getTodos() {
@@ -37,5 +43,23 @@ export class TodosController {
     async deleteTodo(@Param('id') id: string) {
         console.log('deleteTodo')
         return await this.todosService.deleteTodo(id)
+    }
+
+    @Post('upload')
+    @UseInterceptors(FileInterceptor('file'))
+    async uploadFile(@UploadedFile() file: Express.Multer.File) {
+        try {
+            const res = await this.prismaService.image.create({ data: { buffer: file.buffer, mineType: file.mimetype } })
+            console.log('sucessfully uploaded', res.id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    @Get('upload/image/:id')
+    async getImage(@Param('id') id: string, @Res() res: Response) {
+        const image = await this.prismaService.image.findUnique({ where: { id } })
+        res.setHeader('Content-Type', image.mineType)
+        res.send(image.buffer)
     }
 }

@@ -5,10 +5,6 @@ export class CreateIngredientDto {
     @IsNotEmpty()
     name: string
 
-    @IsString()
-    @IsNotEmpty()
-    image: string
-
     @IsNumber()
     @IsNotEmpty()
     carbohydrates: number
@@ -20,4 +16,8 @@ export class CreateIngredientDto {
     @IsNumber()
     @IsNotEmpty()
     protein: number
+
+    @IsNumber()
+    @IsNotEmpty()
+    quantity: number
 }

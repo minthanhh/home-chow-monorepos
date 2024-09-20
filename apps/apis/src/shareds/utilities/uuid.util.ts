@@ -1,8 +1,8 @@
 import { uuidRegex } from '../constants'
-import { Ingredient } from '@prisma/client'
+import { Image, Ingredient } from '@prisma/client'
 
 type IngredientType = Omit<Ingredient, 'id' | 'createdAt' | 'updatedAt'>
-type UuidNamePairsType = Array<string | IngredientType>
+type UuidNamePairsType = Array<string | Partial<IngredientType>>
 
 /**
  *
@@ -11,7 +11,7 @@ type UuidNamePairsType = Array<string | IngredientType>
  * @var {string[]} n is short name of names
  * @returns {[string[], string[]]}
  */
-export function extractUuidAndNameArrays(l: UuidNamePairsType): [string[], IngredientType[]] {
+export function extractUuidAndNameArrays(l: UuidNamePairsType, imgs: Image[]): [string[], IngredientType[]] {
     const u: string[] = [],
         n: IngredientType[] = []
 
@@ -24,7 +24,7 @@ export function extractUuidAndNameArrays(l: UuidNamePairsType): [string[], Ingre
             u.push(p)
             continue
         }
-        n.push(p as IngredientType)
+        n.push({ ...(p as IngredientType), imageId: imgs[i].id })
     }
     return [u, n]
 }

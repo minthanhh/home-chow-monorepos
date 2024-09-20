@@ -2,11 +2,11 @@ import { Ingredient } from '@prisma/client'
 
 export function caculateNutritionalValue(ingredients: Ingredient[]) {
     return ingredients.reduce(
-        (acc, { protein, fat, carbohydrates }) => {
-            acc.protein += protein
-            acc.fat += fat
-            acc.carbohydrates += carbohydrates
-            acc.totalMass += protein + fat + carbohydrates // Cộng trực tiếp mỗi lần lặp
+        (acc, { protein, fat, carbohydrates, quantity }) => {
+            acc.protein += protein * quantity
+            acc.fat += fat * quantity
+            acc.carbohydrates += carbohydrates * quantity
+            acc.totalMass += protein + fat + carbohydrates
             return acc
         },
         { protein: 0, carbohydrates: 0, fat: 0, totalMass: 0 },

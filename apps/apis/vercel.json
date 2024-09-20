@@ -1,7 +1,7 @@
 {
     "builds": [
         {
-            "src": "src/main.ts",
+            "src": "dist/main.js",
             "use": "@vercel/node",
             "config": {
                 "includeFiles": ["apps/apis/prisma/**", "apps/apis/node_modules/@prisma/client/**", "apps/apis/node_modules/.prisma/client/**"]
@@ -11,7 +11,7 @@
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "src/main.ts",
+            "dest": "dist/main.js",
             "methods": ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
             "headers": {
                 "Access-Control-Allow-Origin": "*",

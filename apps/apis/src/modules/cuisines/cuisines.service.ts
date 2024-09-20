@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common'
 import { CreateCuisineDto } from './dtos/create-cuisine.dto'
 import { UpdateCuisineDto } from './dtos/update-cuisine.dto'
 import { PrismaService } from 'src/shareds'
@@ -7,8 +7,15 @@ import { PrismaService } from 'src/shareds'
 export class CuisinesService {
     constructor(private readonly prismaService: PrismaService) {}
 
-    async create(createCuisineDto: CreateCuisineDto) {
-        return await this.prismaService.cuisine.create({ data: createCuisineDto })
+    async create(createCuisineDto: CreateCuisineDto, icon: Express.Multer.File) {
+        try {
+            return await this.prismaService.$transaction(async (prisma) => {
+                const cuisineIcon = await prisma.image.create({ data: { buffer: icon.buffer, mineType: icon.mimetype } })
+                return await prisma.cuisine.create({ data: { name: createCuisineDto.name, iconId: cuisineIcon.id } })
+            })
+        } catch (error) {
+            throw new InternalServerErrorException('An unexpected error occurred while processing the request.')
+        }
     }
 
     async findAll() {

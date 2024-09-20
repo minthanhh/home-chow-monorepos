@@ -21,20 +21,22 @@ export class MealsService {
      *      - INSERT INTO "ReipeIngredient" (recipeId, ingredientId) ('{recipeId}', '{ingredientId}') ('{recipeId}', '{ingredientId}')
      *      - INSERT INTO "Meal" (name, recipeId, cuisineId, createdBy) ('{name}', '{recipeId}', '{cuisineId}', '{createdBy}');
      */
-    async create(createMealDto: CreateMealDto, userId: string) {
+    async create(createMealDto: CreateMealDto, userId: string, images: Express.Multer.File[]) {
         let recipe: Recipe
-        const [ingredientUuids, ingredientNames] = extractUuidAndNameArrays(createMealDto.ingredients)
+        const mealImageBuffer = images[0]
+        const ingredientImagesBuffer = images.slice(1)
         const ingredientProcess = []
 
         await this.prismaService.$transaction(async (prisma) => {
+            const [ingredientImages, mealImage] = await Promise.all([
+                await prisma.image.createManyAndReturn({ data: ingredientImagesBuffer.map((ib) => ({ buffer: ib.buffer, mineType: ib.mimetype })) }),
+                await prisma.image.create({ data: { buffer: mealImageBuffer.buffer, mineType: mealImageBuffer.mimetype } }),
+            ])
+
+            const [ingredientUuids, ingredientNames] = extractUuidAndNameArrays(createMealDto.ingredients, ingredientImages)
+
             if (ingredientUuids.length > 0) {
-                ingredientProcess.push(
-                    prisma.ingredient.findMany({
-                        where: {
-                            id: { in: ingredientUuids },
-                        },
-                    }),
-                )
+                ingredientProcess.push(prisma.ingredient.findMany({ where: { id: { in: ingredientUuids } } }))
             }
 
             if (ingredientNames.length > 0) {
@@ -59,21 +61,21 @@ export class MealsService {
 
             const recipeId = createMealDto?.recipeId || recipe.id
 
-            console.log('ingredients', ingredients)
-            console.log('recipeId', recipeId)
-
             const recipeIngredients = ingredients.map((i) => ({ ingredientId: i.id, recipeId: recipeId }))
 
-            await prisma.recipeIngredient.createMany({ data: recipeIngredients })
-
-            await prisma.meal.create({
-                data: {
-                    name: createMealDto.name,
-                    recipeId: recipeId,
-                    cuisineId: createMealDto.cuisineId,
-                    createdById: userId,
-                },
-            })
+            await Promise.all([
+                prisma.recipeIngredient.createMany({ data: recipeIngredients }),
+                prisma.meal.create({
+                    data: {
+                        name: createMealDto.name,
+                        cuisineId: createMealDto.cuisineId,
+                        description: createMealDto.description,
+                        imageId: mealImage.id,
+                        recipeId: recipeId,
+                        createdById: userId,
+                    },
+                }),
+            ])
         })
 
         return 'Created meal successfully'
@@ -125,7 +127,21 @@ export class MealsService {
                         select: {
                             id: true,
                             description: true,
-                            ingredients: true,
+                            ingredients: {
+                                select: {
+                                    ingredient: {
+                                        select: {
+                                            id: true,
+                                            name: true,
+                                            image: true,
+                                            carbohydrates: true,
+                                            fat: true,
+                                            protein: true,
+                                        },
+                                    },
+                                },
+                            },
+                            nutritionalValue: true,
                         },
                     },
                     cuisine: {
@@ -161,16 +177,16 @@ export class MealsService {
      * @sql - UPDATE SET FROM "Meal" (name, ...) VALUES ('{name}') WHERE id = '{id}' ;
      */
     async update(id: string, updateMealDto: UpdateMealDto) {
-        try {
-            await this.prismaService.meal.update({
-                where: { id },
-                data: updateMealDto,
-            })
-            return 'Updated successfully'
-        } catch (error) {
-            if (error.code === 'P2025') throw new NotFoundException(`Recipe with id ${id} not found`)
-            throw error
-        }
+        // try {
+        //     await this.prismaService.meal.update({
+        //         where: { id },
+        //         data: { ...updateMealDto, imageId: 'fadsf' },
+        //     })
+        //     return 'Updated successfully'
+        // } catch (error) {
+        //     if (error.code === 'P2025') throw new NotFoundException(`Recipe with id ${id} not found`)
+        //     throw error
+        // }
     }
 
     /**

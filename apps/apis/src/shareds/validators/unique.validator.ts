@@ -10,6 +10,8 @@ export class UniqueValidator implements ValidatorConstraintInterface {
     public async validate<E>(value: string, args: IUniqueValidationArguments<E>): Promise<boolean> {
         const [modelName, findCondition] = args.constraints
 
+        if (!value) return true
+
         const record = await this.prisma[modelName]['findUnique']({
             where: findCondition(args, value),
         })

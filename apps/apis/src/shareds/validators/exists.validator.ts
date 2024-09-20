@@ -11,6 +11,8 @@ export class ExistsValidator implements ValidatorConstraintInterface {
     public async validate<E>(value: string, args: IExistsValidationArguments<E>): Promise<boolean> {
         const [modelName, findCondition] = args.constraints
 
+        if (!value) return true
+
         const record = await this.prisma[modelName]['findFirst']({
             where: findCondition(args, value),
         })

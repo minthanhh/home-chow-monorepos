@@ -1,7 +1,8 @@
-import { IsArray, IsNotEmpty, IsString } from 'class-validator'
+import { IsNotEmpty, IsString, ValidateIf } from 'class-validator'
 import { CreateIngredientDto } from 'src/modules/ingredients'
-import { IsStringOrObject } from '../validators'
 import { Type } from 'class-transformer'
+import { Exists } from 'src/shareds'
+import { Prisma } from '@prisma/client'
 
 export class CreateMealDto {
     @IsNotEmpty()
@@ -10,6 +11,11 @@ export class CreateMealDto {
 
     @IsNotEmpty()
     @IsString()
+    description: string
+
+    @IsNotEmpty()
+    @IsString()
+    @Exists<Prisma.CuisineWhereInput>(['cuisine', (_, id) => ({ id })])
     cuisineId: string
 
     @IsString()
@@ -18,9 +24,8 @@ export class CreateMealDto {
     @IsString()
     recipeDescription: string
 
-    @IsArray()
-    @IsNotEmpty()
+    // @IsArray()
+    @ValidateIf((o) => o.ingredients.length > 0)
     @Type(() => CreateIngredientDto)
-    @IsStringOrObject({ message: 'Each element in the ingredients array must be a string or an object' })
     ingredients: (CreateIngredientDto | string)[]
 }

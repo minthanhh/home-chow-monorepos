@@ -7,7 +7,7 @@ import { ValidationPipe } from '@nestjs/common'
 import { setupSwagger } from './core/setups'
 import { useContainer } from 'class-validator'
 
-async function bootstrap() {
+export async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
         logger: ['log', 'warn', 'error', 'debug'],
         cors: true,
@@ -50,4 +50,5 @@ async function bootstrap() {
     await app.listen(3000)
     console.info(`Server running on ${await app.getUrl()}`)
 }
+
 bootstrap()

@@ -49,10 +49,15 @@ model UserMeal {
 
 // #region Meal
 model Meal {
-  id        String   @id @default(uuid())
-  name      String
+  id          String @id @default(uuid())
+  name        String
+  description String
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  image   Image  @relation(fields: [imageId], references: [id])
+  imageId String
 
   cuisine   Cuisine @relation(fields: [cuisineId], references: [id])
   cuisineId String
@@ -80,15 +85,18 @@ model RecipeIngredient {
 
 // #region Ingredient
 model Ingredient {
-  id            String             @id @default(uuid())
+  id            String @id @default(uuid())
   name          String
-  image         String
+  image         Image  @relation(fields: [imageId], references: [id])
+  imageId       String
   protein       Int
   fat           Int
   carbohydrates Int
-  createdAt     DateTime           @default(now())
-  updatedAt     DateTime           @updatedAt
-  recipes       RecipeIngredient[] // Quan hệ nhiều-nhiều với Recipe thông qua bảng trung gian RecipeIngredient
+  quantity      Int
+
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  recipes   RecipeIngredient[] // Quan hệ nhiều-nhiều với Recipe thông qua bảng trung gian RecipeIngredient
 }
 
 // #region Recipe
@@ -120,7 +128,8 @@ model NutritionalValue {
 model Cuisine {
   id          String   @id @default(uuid())
   name        String   @unique
-  icon        String
+  icon        Image    @relation(fields: [iconId], references: [id])
+  iconId      String
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -133,4 +142,25 @@ model Todo {
   title     String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Blog {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  content     String
+  image       String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Image {
+  id         String       @id @default(uuid())
+  buffer     Bytes
+  mineType   String
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+  Meal       Meal[]
+  Ingredient Ingredient[]
+  Cuisine    Cuisine[]
 }

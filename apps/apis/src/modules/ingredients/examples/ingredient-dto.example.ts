@@ -2,6 +2,8 @@ import { ApiProperty } from '@nestjs/swagger'
 import { Ingredient } from '@prisma/client'
 
 export class IngredientDto implements Ingredient {
+    imageId: string
+    quantity: number
     protein: number
     fat: number
     carbohydrates: number

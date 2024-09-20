@@ -18,8 +18,8 @@ export class IngredientsService {
             VALUES ('{name}', '{image}');
         @returns - Return new data record created.
      */
-    async create(createIngredientDto: CreateIngredientDto) {
-        return await this.prismaService.ingredient.create({ data: createIngredientDto })
+    async create(createIngredientDto: CreateIngredientDto, image: Express.Multer.File) {
+        // return await this.prismaService.ingredient.create({ data: createIngredientDto })
     }
 
     /**
@@ -37,7 +37,7 @@ export class IngredientsService {
         @returns - Trả về các bản ghi nguyên liệu mới được chèn.
      */
     async createManyAndReturn(createIngredientDtos: CreateIngredientDto[]) {
-        return await this.prismaService.ingredient.createManyAndReturn({ data: createIngredientDtos })
+        // return await this.prismaService.ingredient.createManyAndReturn({ data: createIngredientDtos })
     }
 
     /**
@@ -52,7 +52,7 @@ export class IngredientsService {
         @returns - Trả về kết quả chèn nhiều bản ghi vào cơ sở dữ liệu.
      */
     async createMany(createIngredientDtos: CreateIngredientDto[]) {
-        return await this.prismaService.ingredient.createMany({ data: createIngredientDtos })
+        // return await this.prismaService.ingredient.createMany({ data: createIngredientDtos })
     }
 
     /**
@@ -121,7 +121,7 @@ export class IngredientsService {
                 "image" = '{image}'
             WHERE "id" = '{id}';
      */
-    async update(id: string, updateIngredientDto: UpdateIngredientDto) {
+    async update(id: string, updateIngredientDto: UpdateIngredientDto, image: Express.Multer.File) {
         await this.findOne(id)
         return await this.prismaService.ingredient.update({ where: { id: id }, data: updateIngredientDto })
     }

@@ -10,7 +10,7 @@ export class CuisinesService {
     async create(createCuisineDto: CreateCuisineDto, icon: Express.Multer.File) {
         try {
             return await this.prismaService.$transaction(async (prisma) => {
-                const cuisineIcon = await prisma.image.create({ data: { buffer: icon.buffer, mineType: icon.mimetype } })
+                const cuisineIcon = await prisma.image.create({ data: { buffer: '', mineType: icon.mimetype } })
                 return await prisma.cuisine.create({ data: { name: createCuisineDto.name, iconId: cuisineIcon.id } })
             })
         } catch (error) {

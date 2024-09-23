@@ -1,0 +1,50 @@
+[
+    {
+        "recipeId": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6",
+        "ingredientId": "3b4c5d6e-7f8g-9h0i-1j2k-3l4m5n6o7p8q",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6",
+        "ingredientId": "4c5d6e7f-8g9h-0i1j-2k3l-4m5n6o7p8q9r",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "k2l3m4n5-o6p7-q8r9-s0t1-u2v3w4x5y6z7",
+        "ingredientId": "1j2k3l4m-5n6o-7p8q-9r0s-1t2u3v4w5x6y",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "k2l3m4n5-o6p7-q8r9-s0t1-u2v3w4x5y6z7",
+        "ingredientId": "6e7f8g9h-0i1j-2k3l-4m5n-6o7p8q9r0s1t",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "l3m4n5o6-p7q8-r9s0-t1u2-v3w4x5y6z7a8",
+        "ingredientId": "8g9h0i1j-2k3l-4m5n-6o7p-8q9r0s1t2u3v",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "l3m4n5o6-p7q8-r9s0-t1u2-v3w4x5y6z7a8",
+        "ingredientId": "0i1j2k3l-4m5n-6o7p-8q9r-0s1t2u3v4w5x",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "m4n5o6p7-q8r9-s0t1-u2v3-w4x5y6z7a8b9",
+        "ingredientId": "9h0i1j2k-3l4m-5n6o-7p8q-9r0s1t2u3v4w",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "m4n5o6p7-q8r9-s0t1-u2v3-w4x5y6z7a8b9",
+        "ingredientId": "1j2k3l4m-5n6o-7p8q-9r0s-1t2u3v4w5x6y",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    }
+]

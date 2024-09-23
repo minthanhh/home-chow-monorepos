@@ -1,23 +1,23 @@
-import { IsNotEmpty, IsNumber, IsString } from 'class-validator'
+import { IsNotEmpty, IsString } from 'class-validator'
 
 export class CreateIngredientDto {
     @IsString()
     @IsNotEmpty()
     name: string
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    carbohydrates: number
+    carbohydrates: string
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    fat: number
+    fat: string
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    protein: number
+    protein: string
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    quantity: number
+    quantity: string
 }

@@ -49,7 +49,7 @@ export class TodosController {
     @UseInterceptors(FileInterceptor('file'))
     async uploadFile(@UploadedFile() file: Express.Multer.File) {
         try {
-            const res = await this.prismaService.image.create({ data: { buffer: file.buffer, mineType: file.mimetype } })
+            const res = await this.prismaService.image.create({ data: { buffer: '', mineType: file.mimetype } })
             console.log('sucessfully uploaded', res.id)
         } catch (error) {
             console.log(error)

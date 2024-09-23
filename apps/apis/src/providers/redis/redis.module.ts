@@ -1,4 +1,4 @@
-import { Global, Module, OnApplicationShutdown } from '@nestjs/common'
+import { Module, OnApplicationShutdown } from '@nestjs/common'
 import { ConfigModule, ConfigService } from '@nestjs/config'
 import { ModuleRef } from '@nestjs/core'
 import { Redis } from 'ioredis'
@@ -12,7 +12,6 @@ import { RedisService } from './redis.service'
         {
             provide: IORedisKey,
             useFactory: async (configService: ConfigService) => {
-                // @ts-ignore
                 return new Redis(configService.get('redis'))
             },
             inject: [ConfigService],

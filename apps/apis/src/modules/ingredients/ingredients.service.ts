@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common'
+import { Injectable, NotFoundException, OnModuleDestroy } from '@nestjs/common'
 import { CreateIngredientDto } from './dtos/create-ingredient.dto'
 import { UpdateIngredientDto } from './dtos/update-ingredient.dto'
 import { PrismaService } from 'src/shareds'
@@ -18,8 +18,21 @@ export class IngredientsService {
             VALUES ('{name}', '{image}');
         @returns - Return new data record created.
      */
-    async create(createIngredientDto: CreateIngredientDto, image: Express.Multer.File) {
-        // return await this.prismaService.ingredient.create({ data: createIngredientDto })
+    async create(createIngredientDto: CreateIngredientDto, imageFile: Express.Multer.File) {
+        return await this.prismaService.$transaction(async (prisma) => {
+            const image = await prisma.image.create({ data: { buffer: '', mineType: imageFile.mimetype } })
+            const newIngredient = await prisma.ingredient.create({
+                data: {
+                    name: createIngredientDto.name,
+                    carbohydrates: parseInt(createIngredientDto.carbohydrates),
+                    quantity: parseInt(createIngredientDto.quantity),
+                    fat: parseInt(createIngredientDto.fat),
+                    protein: parseInt(createIngredientDto.protein),
+                    imageId: image.id,
+                },
+            })
+            return { id: newIngredient.id }
+        })
     }
 
     /**
@@ -122,8 +135,8 @@ export class IngredientsService {
             WHERE "id" = '{id}';
      */
     async update(id: string, updateIngredientDto: UpdateIngredientDto, image: Express.Multer.File) {
-        await this.findOne(id)
-        return await this.prismaService.ingredient.update({ where: { id: id }, data: updateIngredientDto })
+        // await this.findOne(id)
+        // return await this.prismaService.ingredient.update({ where: { id: id }, data: updateIngredientDto })
     }
 
     /**

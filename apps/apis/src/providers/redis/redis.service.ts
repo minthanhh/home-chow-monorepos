@@ -11,7 +11,6 @@ export class RedisService {
     ) {}
 
     async getKeys(pattern?: string): Promise<string[]> {
-        // @ts-ignore
         return await this.redisClient.keys(pattern)
     }
 

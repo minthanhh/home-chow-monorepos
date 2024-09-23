@@ -1,0 +1,50 @@
+[
+    {
+        "id": "0def56eb-8a21-4a63-b8fd-67412b69637b",
+        "email": "mint03sanzz@gmail.com",
+        "fullName": "Hồ Minh Thành",
+        "username": "minhthanh",
+        "birthDate": "1990-01-01",
+        "work": "Frontend Engineer",
+        "address": "123 Main St, Cityville, USA",
+        "avatar": "https://example.com/avatars/johndoe.png",
+        "createdAt": "2024-01-01T12:00:00.000Z",
+        "updatedAt": "2024-01-01T12:00:00.000Z",
+        "refreshToken": "abcd1234",
+        "phone": "0867659309",
+        "password": "$2b$10$9PKoio6kyg.VYtZA/NSXYe4aUwhQPqZGAlsLid5VnBzmUxbNWT/j2",
+        "refreshTokenExpiration": "2024-01-10T12:00:00.000Z"
+    },
+    {
+        "id": "1641b86c-f1d4-40ab-8bbb-86bfe6ff64cb",
+        "email": "jane.smith@example.com",
+        "fullName": "Jane Smith",
+        "username": "janesmith",
+        "birthDate": "1985-05-15",
+        "work": "Product Manager",
+        "address": "456 Market St, Townsville, USA",
+        "avatar": "https://example.com/avatars/janesmith.png",
+        "createdAt": "2024-02-01T08:00:00.000Z",
+        "updatedAt": "2024-02-01T08:00:00.000Z",
+        "refreshToken": "efgh5678",
+        "phone": "0379216447",
+        "password": "$2b$10$9PKoio6kyg.VYtZA/NSXYe4aUwhQPqZGAlsLid5VnBzmUxbNWT/j2",
+        "refreshTokenExpiration": "2024-02-10T08:00:00.000Z"
+    },
+    {
+        "id": "1c9b31a8-9c15-477e-b1d9-7d3fa8ec3b85",
+        "email": "alice.williams@example.com",
+        "fullName": "Alice Williams",
+        "username": "alicew",
+        "birthDate": "1995-09-20",
+        "work": "Designer",
+        "address": "789 Park Ave, Metropolis, USA",
+        "avatar": "https://example.com/avatars/alicewilliams.png",
+        "createdAt": "2024-03-01T15:00:00.000Z",
+        "updatedAt": "2024-03-01T15:00:00.000Z",
+        "refreshToken": "ijkl9012",
+        "phone": "0808390123",
+        "password": "$2b$10$9PKoio6kyg.VYtZA/NSXYe4aUwhQPqZGAlsLid5VnBzmUxbNWT/j2",
+        "refreshTokenExpiration": "2024-03-10T15:00:00.000Z"
+    }
+]

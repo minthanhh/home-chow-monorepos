@@ -1,0 +1,30 @@
+[
+    {
+        "id": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6",
+        "description": "Grilled Chicken with Broccoli",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "nutritionalValueId": "e2f3g4h5-i6j7-k8l9-m0n1-o2p3q4r5s6t7"
+    },
+    {
+        "id": "k2l3m4n5-o6p7-q8r9-s0t1-u2v3w4x5y6z7",
+        "description": "Quinoa Salad",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "nutritionalValueId": "f3g4h5i6-j7k8-l9m0-n1o2-p3q4r5s6t7u8"
+    },
+    {
+        "id": "l3m4n5o6-p7q8-r9s0-t1u2-v3w4x5y6z7a8",
+        "description": "Vegetable Stir Fry",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "nutritionalValueId": "g4h5i6j7-k8l9-m0n1-o2p3-q4r5s6t7u8v9"
+    },
+    {
+        "id": "m4n5o6p7-q8r9-s0t1-u2v3-w4x5y6z7a8b9",
+        "description": "Egg and Spinach Omelette",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "nutritionalValueId": "h5i6j7k8-l9m0-n1o2-p3q4-r5s6t7u8v9w0"
+    }
+]

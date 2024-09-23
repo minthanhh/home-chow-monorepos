@@ -1,0 +1,112 @@
+[
+    {
+        "id": "2f3e4d5c-6b7a-4f8c-9d0e-1f2g3h4i5j6k",
+        "name": "Tomato",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 3,
+        "fat": 0,
+        "protein": 1,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 2
+    },
+    {
+        "id": "3b4c5d6e-7f8g-9h0i-1j2k-3l4m5n6o7p8q",
+        "name": "Chicken Breast",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 0,
+        "fat": 3,
+        "protein": 31,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 1
+    },
+    {
+        "id": "4c5d6e7f-8g9h-0i1j-2k3l-4m5n6o7p8q9r",
+        "name": "Broccoli",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 7,
+        "fat": 0,
+        "protein": 3,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 2
+    },
+    {
+        "id": "5d6e7f8g-9h0i-1j2k-3l4m-5n6o7p8q9r0s",
+        "name": "Olive Oil",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 0,
+        "fat": 100,
+        "protein": 0,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 1
+    },
+    {
+        "id": "6e7f8g9h-0i1j-2k3l-4m5n-6o7p8q9r0s1t",
+        "name": "Rice",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 28,
+        "fat": 0,
+        "protein": 3,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 3
+    },
+    {
+        "id": "7f8g9h0i-1j2k-3l4m-5n6o-7p8q9r0s1t2u",
+        "name": "Cheese",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 1,
+        "fat": 33,
+        "protein": 25,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 2
+    },
+    {
+        "id": "8g9h0i1j-2k3l-4m5n-6o7p-8q9r0s1t2u3v",
+        "name": "Lentils",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 20,
+        "fat": 0,
+        "protein": 9,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 1
+    },
+    {
+        "id": "9h0i1j2k-3l4m-5n6o-7p8q-9r0s1t2u3v4w",
+        "name": "Egg",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 1,
+        "fat": 5,
+        "protein": 6,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 3
+    },
+    {
+        "id": "0i1j2k3l-4m5n-6o7p-8q9r-0s1t2u3v4w5x",
+        "name": "Spinach",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 3,
+        "fat": 0,
+        "protein": 3,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 2
+    },
+    {
+        "id": "1j2k3l4m-5n6o-7p8q-9r0s-1t2u3v4w5x6y",
+        "name": "Quinoa",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 21,
+        "fat": 2,
+        "protein": 4,
+        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
+        "quantity": 1
+    }
+]

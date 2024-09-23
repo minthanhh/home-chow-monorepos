@@ -1,6 +1,6 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Req, Res, UseGuards } from '@nestjs/common'
 import { Request, Response } from 'express'
-import { GoogleOAuthGuard, JwtAuthGuard, LocalAuthGuard, RefreshAuthGuard } from './guards'
+import { GoogleOAuthGuard, JwtAuthGuard, LocalAuthGuard, PhoneAuthGuard, RefreshAuthGuard } from './guards'
 import { CreateUserDto, LoginUserDto } from './dtos'
 import { UsersService } from './users.service'
 import { CurrentUser } from 'src/shareds'
@@ -61,4 +61,13 @@ export class UsersController {
     async getUserInfo(@Param('id') userId: string) {
         return await this.usersService.getUser(userId)
     }
+
+    @UseGuards(PhoneAuthGuard)
+    @Post('login-with-phone-number')
+    async loginWithPhoneNumber(@CurrentUser() user: User) {
+        return await this.usersService.login(user)
+    }
+
+    @Post('auto-verify-phone-number')
+    async autoVerifyPhoneNumber() {}
 }

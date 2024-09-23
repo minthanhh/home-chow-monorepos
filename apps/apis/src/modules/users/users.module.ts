@@ -5,7 +5,7 @@ import { ConfigModule } from '@nestjs/config'
 
 import { UsersController } from './users.controller'
 import { UsersService } from './users.service'
-import { GoogleStrategy, JwtStrategy, LocalStrategy, RefreshJwtStrategy } from './strategies'
+import { GoogleStrategy, JwtStrategy, LocalStrategy, RefreshJwtStrategy, PhoneStrategy } from './strategies'
 import jwtConfig from './configs/jwt.config'
 import refreshJwtConfig from './configs/refresh-jwt.config'
 import googleOauthConfig from './configs/google-oauth.config'
@@ -20,7 +20,7 @@ import { MailModule, MailService } from '../mail'
         JwtModule.registerAsync(jwtConfig.asProvider()),
         MailModule,
     ],
-    providers: [UsersService, GoogleStrategy, LocalStrategy, RefreshJwtStrategy, JwtStrategy, MailService],
+    providers: [UsersService, GoogleStrategy, LocalStrategy, RefreshJwtStrategy, JwtStrategy, MailService, PhoneStrategy],
     controllers: [UsersController],
 })
 export class UsersModule {}

@@ -19,7 +19,7 @@ datasource db {
 model User {
   id                     String     @id @default(uuid())
   email                  String     @unique
-  phone                  Int?       @unique
+  phone                  String?    @unique
   username               String     @unique
   fullName               String?
   birthDate              String?
@@ -156,11 +156,17 @@ model Blog {
 
 model Image {
   id         String       @id @default(uuid())
-  buffer     Bytes
+  buffer     String
   mineType   String
   createdAt  DateTime     @default(now())
   updatedAt  DateTime     @updatedAt
   Meal       Meal[]
   Ingredient Ingredient[]
   Cuisine    Cuisine[]
+}
+
+model Example {
+  id       String @id @default(uuid())
+  buffer   Bytes
+  mineType String
 }

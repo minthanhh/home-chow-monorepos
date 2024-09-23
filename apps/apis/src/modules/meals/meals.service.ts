@@ -29,8 +29,9 @@ export class MealsService {
 
         await this.prismaService.$transaction(async (prisma) => {
             const [ingredientImages, mealImage] = await Promise.all([
-                await prisma.image.createManyAndReturn({ data: ingredientImagesBuffer.map((ib) => ({ buffer: ib.buffer, mineType: ib.mimetype })) }),
-                await prisma.image.create({ data: { buffer: mealImageBuffer.buffer, mineType: mealImageBuffer.mimetype } }),
+                await prisma.image.createManyAndReturn({ data: [] }),
+                // ingredientImagesBuffer.map((ib) => ({ buffer: ib.buffer, mineType: ib.mimetype }))
+                await prisma.image.create({ data: { buffer: '', mineType: mealImageBuffer.mimetype } }),
             ])
 
             const [ingredientUuids, ingredientNames] = extractUuidAndNameArrays(createMealDto.ingredients, ingredientImages)

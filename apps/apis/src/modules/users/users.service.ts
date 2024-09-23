@@ -74,6 +74,14 @@ export class UsersService {
         return await this.prismaService.user.findUnique({ where: { id: userId } })
     }
 
+    async validateUserByPhone(phone: string) {
+        console.log('phone', phone)
+        const existingUser = await this.prismaService.user.findUnique({ where: { phone: phone } })
+        console.log('0867659309', existingUser)
+        if (!existingUser) throw new NotFoundException(`Phone does not exist`)
+        return existingUser
+    }
+
     async validateUser(username: string, password: string) {
         const existingUser = await this.prismaService.user.findUnique({ where: { email: username } })
         if (!existingUser) throw new NotFoundException(`User ${username} does not exist`)

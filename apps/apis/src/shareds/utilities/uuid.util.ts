@@ -1,7 +1,15 @@
 import { uuidRegex } from '../constants'
 import { Image, Ingredient } from '@prisma/client'
 
-type IngredientType = Omit<Ingredient, 'id' | 'createdAt' | 'updatedAt'>
+type IngredientType = Omit<Ingredient, 'id' | 'createdAt' | 'updatedAt' | 'protein' | 'fat' | 'quantity' | 'carbohydrates'> & {
+    protein: string
+    fat: string
+    carbohydrates: string
+    quantity: string
+}
+
+type ReturnIngredientType = Omit<Ingredient, 'id' | 'createdAt' | 'updatedAt'>
+
 type UuidNamePairsType = Array<string | Partial<IngredientType>>
 
 /**
@@ -11,9 +19,9 @@ type UuidNamePairsType = Array<string | Partial<IngredientType>>
  * @var {string[]} n is short name of names
  * @returns {[string[], string[]]}
  */
-export function extractUuidAndNameArrays(l: UuidNamePairsType, imgs: Image[]): [string[], IngredientType[]] {
+export function extractUuidAndNameArrays(l: UuidNamePairsType, imgs: Image[]): [string[], ReturnIngredientType[]] {
     const u: string[] = [],
-        n: IngredientType[] = []
+        n: ReturnIngredientType[] = []
 
     const le = l.length
 
@@ -24,7 +32,18 @@ export function extractUuidAndNameArrays(l: UuidNamePairsType, imgs: Image[]): [
             u.push(p)
             continue
         }
-        n.push({ ...(p as IngredientType), imageId: imgs[i].id })
+
+        const po = p as IngredientType
+
+        n.push({
+            ...po,
+            imageId: imgs[i].id,
+            protein: parseInt(po.protein),
+            carbohydrates: parseInt(po.carbohydrates),
+            fat: parseInt(po.fat),
+            quantity: parseInt(po.quantity),
+        })
     }
+
     return [u, n]
 }

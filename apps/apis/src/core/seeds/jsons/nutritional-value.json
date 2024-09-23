@@ -1,0 +1,38 @@
+[
+    {
+        "id": "e2f3g4h5-i6j7-k8l9-m0n1-o2p3q4r5s6t7",
+        "protein": 25.0,
+        "kcal": 500,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 60.0,
+        "fat": 20.0
+    },
+    {
+        "id": "f3g4h5i6-j7k8-l9m0-n1o2-p3q4r5s6t7u8",
+        "protein": 15.0,
+        "kcal": 300,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 40.0,
+        "fat": 10.0
+    },
+    {
+        "id": "g4h5i6j7-k8l9-m0n1-o2p3-q4r5s6t7u8v9",
+        "protein": 30.0,
+        "kcal": 600,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 70.0,
+        "fat": 25.0
+    },
+    {
+        "id": "h5i6j7k8-l9m0-n1o2-p3q4-r5s6t7u8v9w0",
+        "protein": 5.0,
+        "kcal": 100,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 10.0,
+        "fat": 2.0
+    }
+]

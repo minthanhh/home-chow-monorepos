@@ -20,8 +20,8 @@ export async function bootstrap() {
     app.setGlobalPrefix('/apis')
     app.enableCors({
         allowedHeaders: 'Content-Type,Authorization',
-        methods: ['POST', 'PUT', 'GET', 'DELETE'],
-        origin: ['http://localhost:3001', process.env.CLIENT_URL],
+        methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS'],
+        origin: ['http://localhost:3001', 'http://localhost:3000', process.env.CLIENT_URL],
         credentials: true,
     })
     app.use(helmet())

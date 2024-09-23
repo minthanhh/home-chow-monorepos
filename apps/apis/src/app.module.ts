@@ -12,10 +12,13 @@ import { CacheModule } from '@nestjs/cache-manager'
 import { NutritionalValuesModule } from './modules/nutritional-values/nutritional-values.module'
 import { BlogsModule } from './modules/blogs/blogs.module'
 import { OrdersModule } from './modules/orders/orders.module'
+import { DevicesModule } from './modules/devices/devices.module'
+import { AwsS3Module } from './providers/aws-s3'
 
 @Module({
     imports: [
         CacheModule.register({ isGlobal: true }),
+        AwsS3Module,
         PrismaModule,
         TodosModule,
         UsersModule,
@@ -28,6 +31,7 @@ import { OrdersModule } from './modules/orders/orders.module'
         NutritionalValuesModule,
         BlogsModule,
         OrdersModule,
+        DevicesModule,
     ],
 })
 export class AppModule {}

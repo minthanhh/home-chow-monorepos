@@ -1,19 +1,22 @@
 import { Module } from '@nestjs/common'
-import { TodosModule } from './modules/todos/todos.module'
-import { UsersModule } from './modules/users/users.module'
-import { PrismaModule } from './shareds/globals'
-import { TwilioModule } from './modules/twilio/twilio.module'
-import { MailModule } from './modules/mail/mail.module'
-import { IngredientsModule } from './modules/ingredients/ingredients.module'
-import { MealsModule } from './modules/meals/meals.module'
-import { RecipesModule } from './modules/recipes/recipes.module'
-import { CuisinesModule } from './modules/cuisines/cuisines.module'
 import { CacheModule } from '@nestjs/cache-manager'
-import { NutritionalValuesModule } from './modules/nutritional-values/nutritional-values.module'
-import { BlogsModule } from './modules/blogs/blogs.module'
-import { OrdersModule } from './modules/orders/orders.module'
-import { DevicesModule } from './modules/devices/devices.module'
-import { AwsS3Module } from './providers/aws-s3'
+import { PrismaModule } from './shareds'
+import { AwsS3Module } from './providers'
+
+import {
+    TodosModule,
+    BlogsModule,
+    NutritionalValuesModule,
+    OrdersModule,
+    IngredientsModule,
+    RecipesModule,
+    CuisinesModule,
+    MailModule,
+    UsersModule,
+    MealsModule,
+    TwilioModule,
+    DevicesModule,
+} from './modules'
 
 @Module({
     imports: [

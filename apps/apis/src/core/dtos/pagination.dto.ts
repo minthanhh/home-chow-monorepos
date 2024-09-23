@@ -12,4 +12,11 @@ export class PaginationDto {
 
     @ApiPropertyOptional({ type: Number, description: 'Tổng số bản ghi (không bắt buộc, thường được tính toán tự động)' })
     totalRecord?: number
+
+    constructor(currentPage: number, pageSize: number, totalPage: number, totalRecord: number) {
+        this.currentPage = currentPage
+        this.pageSize = pageSize
+        this.totalPage = totalPage
+        this.totalRecord = totalRecord
+    }
 }

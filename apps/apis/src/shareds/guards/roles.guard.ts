@@ -2,7 +2,7 @@ import type { CanActivate, ExecutionContext } from '@nestjs/common'
 import { ForbiddenException, Injectable } from '@nestjs/common'
 import { Reflector } from '@nestjs/core'
 import _ from 'lodash'
-import type { UserRoleType } from '../constants'
+import { UserRoleType } from 'src/core/constants'
 
 /**
  * Extract user roles from token and endpoint required roles, check if user has any of required roles.

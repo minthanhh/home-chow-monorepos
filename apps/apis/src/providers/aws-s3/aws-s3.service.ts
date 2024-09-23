@@ -3,8 +3,7 @@ import { Inject, Injectable } from '@nestjs/common'
 import awsS3Config from './configs/aws-s3.config'
 import { ConfigType } from '@nestjs/config'
 import { GeneratorUtil } from 'src/shareds/utilities'
-import mime from 'mime-types'
-
+import mine from 'src/core/setups/mine-types'
 @Injectable()
 export class AwsS3Service {
     private readonly _s3: S3
@@ -16,15 +15,18 @@ export class AwsS3Service {
     }
 
     async uploadImage(file: Express.Multer.File): Promise<string> {
-        const key = 'images/' + GeneratorUtil.fileName(<string>mime.extension(file.mimetype))
-        await this._s3.putObject({
-            Bucket: this.bucketName,
-            Body: file.buffer,
-            ACL: 'public-read',
-            Key: key,
-            ContentType: file.mimetype,
-        })
-        return `https://${this.bucketName}.s3express-az_id.region.amazonaws.com/${key}`
+        console.log('ext', mine.getExtension(file.mimetype))
+        const key = 'images/' + GeneratorUtil.fileName(mine.getExtension(file.mimetype))
+        console.log('key', key)
+        // await this._s3.putObject({
+        //     Bucket: this.bucketName,
+        //     Body: file.buffer,
+        //     ACL: 'public-read',
+        //     Key: key,
+        //     ContentType: file.mimetype,
+        // })
+        return ''
+        // return `https://${this.bucketName}.s3express-az_id.region.amazonaws.com/${key}`
     }
 
     async uploadImages(files: Express.Multer.File[]) {

@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, OnModuleDestroy } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { CreateIngredientDto } from './dtos/create-ingredient.dto'
 import { UpdateIngredientDto } from './dtos/update-ingredient.dto'
 import { PrismaService } from 'src/shareds'
@@ -18,21 +18,18 @@ export class IngredientsService {
             VALUES ('{name}', '{image}');
         @returns - Return new data record created.
      */
-    async create(createIngredientDto: CreateIngredientDto, imageFile: Express.Multer.File) {
-        return await this.prismaService.$transaction(async (prisma) => {
-            const image = await prisma.image.create({ data: { buffer: '', mineType: imageFile.mimetype } })
-            const newIngredient = await prisma.ingredient.create({
-                data: {
-                    name: createIngredientDto.name,
-                    carbohydrates: parseInt(createIngredientDto.carbohydrates),
-                    quantity: parseInt(createIngredientDto.quantity),
-                    fat: parseInt(createIngredientDto.fat),
-                    protein: parseInt(createIngredientDto.protein),
-                    imageId: image.id,
-                },
-            })
-            return { id: newIngredient.id }
+    async create(createIngredientDto: CreateIngredientDto) {
+        const newIngredient = await this.prismaService.ingredient.create({
+            data: {
+                name: createIngredientDto.name,
+                carbohydrates: parseInt(createIngredientDto.carbohydrates),
+                quantity: parseInt(createIngredientDto.quantity),
+                fat: parseInt(createIngredientDto.fat),
+                protein: parseInt(createIngredientDto.protein),
+                image: createIngredientDto.image,
+            },
         })
+        return { id: newIngredient.id }
     }
 
     /**
@@ -50,7 +47,15 @@ export class IngredientsService {
         @returns - Trả về các bản ghi nguyên liệu mới được chèn.
      */
     async createManyAndReturn(createIngredientDtos: CreateIngredientDto[]) {
-        // return await this.prismaService.ingredient.createManyAndReturn({ data: createIngredientDtos })
+        return await this.prismaService.ingredient.createManyAndReturn({
+            data: createIngredientDtos.map((ci) => ({
+                ...ci,
+                carbohydrates: parseInt(ci.carbohydrates),
+                quantity: parseInt(ci.quantity),
+                fat: parseInt(ci.fat),
+                protein: parseInt(ci.protein),
+            })),
+        })
     }
 
     /**
@@ -65,7 +70,15 @@ export class IngredientsService {
         @returns - Trả về kết quả chèn nhiều bản ghi vào cơ sở dữ liệu.
      */
     async createMany(createIngredientDtos: CreateIngredientDto[]) {
-        // return await this.prismaService.ingredient.createMany({ data: createIngredientDtos })
+        return await this.prismaService.ingredient.createMany({
+            data: createIngredientDtos.map((ci) => ({
+                ...ci,
+                carbohydrates: parseInt(ci.carbohydrates),
+                quantity: parseInt(ci.quantity),
+                fat: parseInt(ci.fat),
+                protein: parseInt(ci.protein),
+            })),
+        })
     }
 
     /**
@@ -134,9 +147,19 @@ export class IngredientsService {
                 "image" = '{image}'
             WHERE "id" = '{id}';
      */
-    async update(id: string, updateIngredientDto: UpdateIngredientDto, image: Express.Multer.File) {
-        // await this.findOne(id)
-        // return await this.prismaService.ingredient.update({ where: { id: id }, data: updateIngredientDto })
+    async update(id: string, updateIngredientDto: UpdateIngredientDto) {
+        await this.findOne(id)
+        return await this.prismaService.ingredient.update({
+            where: { id: id },
+            data: {
+                name: updateIngredientDto.name,
+                carbohydrates: parseInt(updateIngredientDto.carbohydrates),
+                quantity: parseInt(updateIngredientDto.quantity),
+                fat: parseInt(updateIngredientDto.fat),
+                protein: parseInt(updateIngredientDto.protein),
+                image: updateIngredientDto.image,
+            },
+        })
     }
 
     /**

@@ -2,7 +2,7 @@
 CREATE TABLE "User" (
     "id" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "phone" TEXT NOT NULL,
+    "phone" TEXT,
     "username" TEXT NOT NULL,
     "fullName" TEXT,
     "birthDate" TEXT,
@@ -33,9 +33,9 @@ CREATE TABLE "Meal" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
-    "imageId" TEXT NOT NULL,
     "cuisineId" TEXT NOT NULL,
     "recipeId" TEXT NOT NULL,
     "createdById" TEXT NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE "RecipeIngredient" (
 CREATE TABLE "Ingredient" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "imageId" TEXT NOT NULL,
+    "image" TEXT NOT NULL,
     "protein" INTEGER NOT NULL,
     "fat" INTEGER NOT NULL,
     "carbohydrates" INTEGER NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE "NutritionalValue" (
 CREATE TABLE "Cuisine" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
-    "iconId" TEXT NOT NULL,
+    "icon" TEXT NOT NULL,
     "description" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
@@ -127,26 +127,6 @@ CREATE TABLE "Blog" (
     CONSTRAINT "Blog_pkey" PRIMARY KEY ("id")
 );
 
--- CreateTable
-CREATE TABLE "Image" (
-    "id" TEXT NOT NULL,
-    "buffer" TEXT NOT NULL,
-    "mineType" TEXT NOT NULL,
-    "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" TIMESTAMP(3) NOT NULL,
-
-    CONSTRAINT "Image_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "Example" (
-    "id" TEXT NOT NULL,
-    "buffer" BYTEA NOT NULL,
-    "mineType" TEXT NOT NULL,
-
-    CONSTRAINT "Example_pkey" PRIMARY KEY ("id")
-);
-
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -169,9 +149,6 @@ ALTER TABLE "UserMeal" ADD CONSTRAINT "UserMeal_userId_fkey" FOREIGN KEY ("userI
 ALTER TABLE "UserMeal" ADD CONSTRAINT "UserMeal_mealId_fkey" FOREIGN KEY ("mealId") REFERENCES "Meal"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Meal" ADD CONSTRAINT "Meal_imageId_fkey" FOREIGN KEY ("imageId") REFERENCES "Image"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE "Meal" ADD CONSTRAINT "Meal_cuisineId_fkey" FOREIGN KEY ("cuisineId") REFERENCES "Cuisine"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
@@ -187,10 +164,4 @@ ALTER TABLE "RecipeIngredient" ADD CONSTRAINT "RecipeIngredient_recipeId_fkey" F
 ALTER TABLE "RecipeIngredient" ADD CONSTRAINT "RecipeIngredient_ingredientId_fkey" FOREIGN KEY ("ingredientId") REFERENCES "Ingredient"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE "Ingredient" ADD CONSTRAINT "Ingredient_imageId_fkey" FOREIGN KEY ("imageId") REFERENCES "Image"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
 ALTER TABLE "Recipe" ADD CONSTRAINT "Recipe_nutritionalValueId_fkey" FOREIGN KEY ("nutritionalValueId") REFERENCES "NutritionalValue"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "Cuisine" ADD CONSTRAINT "Cuisine_iconId_fkey" FOREIGN KEY ("iconId") REFERENCES "Image"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

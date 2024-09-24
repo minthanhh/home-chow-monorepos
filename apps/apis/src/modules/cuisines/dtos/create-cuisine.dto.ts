@@ -7,4 +7,8 @@ export class CreateCuisineDto {
     @IsString()
     @Unique<Prisma.CuisineWhereInput>(['cuisine', (_, name) => ({ name: name })])
     name: string
+
+    @IsNotEmpty()
+    @IsString()
+    icon: string
 }

@@ -1,18 +1,4 @@
-import {
-    Controller,
-    Get,
-    Post,
-    Body,
-    Patch,
-    Param,
-    Delete,
-    HttpCode,
-    HttpStatus,
-    Query,
-    UseGuards,
-    UploadedFiles,
-    UseInterceptors,
-} from '@nestjs/common'
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, HttpStatus, Query, UseGuards } from '@nestjs/common'
 import { ApiBody, ApiParam, ApiTags } from '@nestjs/swagger'
 import { User } from '@prisma/client'
 
@@ -21,7 +7,6 @@ import { MealsService } from './meals.service'
 import { PaginationDto } from 'src/core/dtos'
 import { JwtAuthGuard } from '../users'
 import { CreateMealDto, UpdateMealDto } from './dtos'
-import { FilesInterceptor } from '@nestjs/platform-express'
 
 @ApiTags('meals')
 @Controller('meals')
@@ -31,9 +16,8 @@ export class MealsController {
 
     @Post()
     @ApiBody({ type: CreateMealDto, required: true })
-    @UseInterceptors(FilesInterceptor('images'))
-    async create(@CurrentUser() user: User, @Body() createMealDto: CreateMealDto, @UploadedFiles() images: Express.Multer.File[]) {
-        return await this.mealsService.create(createMealDto, user.id, images)
+    async create(@CurrentUser() user: User, @Body() createMealDto: CreateMealDto) {
+        return await this.mealsService.create(createMealDto, user.id)
     }
 
     @Get()

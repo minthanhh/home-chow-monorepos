@@ -2,11 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { CreateMealDto } from './dtos/create-meal.dto'
 import { UpdateMealDto } from './dtos/update-meal.dto'
 import { PrismaService } from 'src/shareds'
-import { extractUuidAndNameArrays } from 'src/shareds/utilities'
-import { Ingredient, Recipe } from '@prisma/client'
+import { Recipe } from '@prisma/client'
 import { PaginationDto } from 'src/core/dtos'
 import { paginator } from 'src/core/utilities'
-import { caculateNutritionalValue, calculateArrayOrNumberPercentage } from '../nutritional-values'
+import { returnNutritionalValueId } from '../nutritional-values'
+import { returnIngredients } from '../ingredients/utilities'
 
 @Injectable()
 export class MealsService {
@@ -21,42 +21,16 @@ export class MealsService {
      *      - INSERT INTO "ReipeIngredient" (recipeId, ingredientId) ('{recipeId}', '{ingredientId}') ('{recipeId}', '{ingredientId}')
      *      - INSERT INTO "Meal" (name, recipeId, cuisineId, createdBy) ('{name}', '{recipeId}', '{cuisineId}', '{createdBy}');
      */
-    async create(createMealDto: CreateMealDto, userId: string, images: Express.Multer.File[]) {
+    async create(createMealDto: CreateMealDto, userId: string) {
         let recipe: Recipe
-        const mealImageBuffer = images[0]
-        const ingredientImagesBuffer = images.slice(1)
-        const ingredientProcess = []
 
         await this.prismaService.$transaction(async (prisma) => {
-            const [ingredientImages, mealImage] = await Promise.all([
-                await prisma.image.createManyAndReturn({ data: [] }),
-                // ingredientImagesBuffer.map((ib) => ({ buffer: ib.buffer, mineType: ib.mimetype }))
-                await prisma.image.create({ data: { buffer: '', mineType: mealImageBuffer.mimetype } }),
-            ])
-
-            const [ingredientUuids, ingredientNames] = extractUuidAndNameArrays(createMealDto.ingredients, ingredientImages)
-
-            if (ingredientUuids.length > 0) {
-                ingredientProcess.push(prisma.ingredient.findMany({ where: { id: { in: ingredientUuids } } }))
-            }
-
-            if (ingredientNames.length > 0) {
-                ingredientProcess.push(prisma.ingredient.createManyAndReturn({ data: ingredientNames }))
-            }
-
-            const ingredients: Ingredient[] = (await Promise.all(ingredientProcess)).flat()
-
-            const { protein, fat, carbohydrates, totalMass } = caculateNutritionalValue(ingredients)
-            const [proteinPercent, fatPercent, carbohydratesPercent] = calculateArrayOrNumberPercentage([protein, fat, carbohydrates], totalMass)
-            const kcal = protein * 4 + fat * 9 + carbohydrates * 4
-
-            const nutritionalValue = await prisma.nutritionalValue.create({
-                data: { protein: proteinPercent, carbohydrates: carbohydratesPercent, fat: fatPercent, kcal: kcal },
-            })
+            const ingredients = await returnIngredients(prisma, createMealDto.ingredients)
+            const nutritionalValueId = await returnNutritionalValueId(prisma, ingredients)
 
             if (!createMealDto.recipeId) {
                 recipe = await prisma.recipe.create({
-                    data: { description: createMealDto.recipeDescription, nutritionalValueId: nutritionalValue.id },
+                    data: { description: createMealDto.recipeDescription, nutritionalValueId },
                 })
             }
 
@@ -71,7 +45,7 @@ export class MealsService {
                         name: createMealDto.name,
                         cuisineId: createMealDto.cuisineId,
                         description: createMealDto.description,
-                        imageId: mealImage.id,
+                        image: createMealDto.image,
                         recipeId: recipeId,
                         createdById: userId,
                     },

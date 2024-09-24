@@ -11,6 +11,10 @@ export class CreateMealDto {
 
     @IsNotEmpty()
     @IsString()
+    image: string
+
+    @IsNotEmpty()
+    @IsString()
     description: string
 
     @IsNotEmpty()

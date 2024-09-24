@@ -1,11 +1,10 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards, UseInterceptors, UploadedFile } from '@nestjs/common'
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common'
 import { IngredientsService } from './ingredients.service'
 import { ApiBody, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { PaginatedResult, PaginationDto } from 'src/core/dtos'
 import { CreateIngredientDto, RemoveIngredientsByRecipeDto, RemoveIngredientsDto, UpdateIngredientDto } from './dtos'
 import { IngredientDto } from './examples'
 import { JwtAuthGuard } from '../users'
-import { FileInterceptor } from '@nestjs/platform-express'
 
 @ApiTags('ingredients')
 @Controller('ingredients')
@@ -14,10 +13,9 @@ export class IngredientsController {
     constructor(private readonly ingredientsService: IngredientsService) {}
 
     @Post()
-    @UseInterceptors(FileInterceptor('image'))
     @ApiBody({ type: CreateIngredientDto, required: true })
-    async create(@Body() createIngredientDto: CreateIngredientDto, @UploadedFile() image: Express.Multer.File) {
-        return await this.ingredientsService.create(createIngredientDto, image)
+    async create(@Body() createIngredientDto: CreateIngredientDto) {
+        return await this.ingredientsService.create(createIngredientDto)
     }
 
     @Get()
@@ -43,9 +41,8 @@ export class IngredientsController {
     @Patch(':id')
     @ApiParam({ name: 'id', type: String, required: true })
     @ApiBody({ type: UpdateIngredientDto, required: true })
-    @UseInterceptors(FileInterceptor('image'))
-    async update(@Param('id') id: string, @Body() updateIngredientDto: UpdateIngredientDto, @UploadedFile() image: Express.Multer.File) {
-        return await this.ingredientsService.update(id, updateIngredientDto, image)
+    async update(@Param('id') id: string, @Body() updateIngredientDto: UpdateIngredientDto) {
+        return await this.ingredientsService.update(id, updateIngredientDto)
     }
 
     @Delete(':id')

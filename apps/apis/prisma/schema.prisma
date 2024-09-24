@@ -11,6 +11,7 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  // directUrl = env("DIRECT_DATABASE_URL")
 }
 
 // npx prisma migrate dev --name "init"
@@ -49,25 +50,18 @@ model UserMeal {
 
 // #region Meal
 model Meal {
-  id          String @id @default(uuid())
+  id          String     @id @default(uuid())
   name        String
   description String
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  image   Image  @relation(fields: [imageId], references: [id])
-  imageId String
-
-  cuisine   Cuisine @relation(fields: [cuisineId], references: [id])
-  cuisineId String
-
-  recipe   Recipe @relation(fields: [recipeId], references: [id])
-  recipeId String
-
-  createdBy   User   @relation("UserCreatedMeals", fields: [createdById], references: [id])
+  image       String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  cuisine     Cuisine    @relation(fields: [cuisineId], references: [id])
+  cuisineId   String
+  recipe      Recipe     @relation(fields: [recipeId], references: [id])
+  recipeId    String
+  createdBy   User       @relation("UserCreatedMeals", fields: [createdById], references: [id])
   createdById String
-
   preferredBy UserMeal[]
 }
 
@@ -87,8 +81,7 @@ model RecipeIngredient {
 model Ingredient {
   id            String @id @default(uuid())
   name          String
-  image         Image  @relation(fields: [imageId], references: [id])
-  imageId       String
+  image         String
   protein       Int
   fat           Int
   carbohydrates Int
@@ -101,35 +94,32 @@ model Ingredient {
 
 // #region Recipe
 model Recipe {
-  id          String             @id @default(uuid())
-  description String
-  createdAt   DateTime           @default(now())
-  updatedAt   DateTime           @updatedAt
-  ingredients RecipeIngredient[] // Quan hệ nhiều-nhiều với Ingredient thông qua bảng trung gian RecipeIngredient
-  meals       Meal[]
-
-  nutritionalValue   NutritionalValue @relation(fields: [nutritionalValueId], references: [id])
-  nutritionalValueId String           @unique
+  id                 String             @id @default(uuid())
+  description        String
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+  ingredients        RecipeIngredient[] // Quan hệ nhiều-nhiều với Ingredient thông qua bảng trung gian RecipeIngredient
+  meals              Meal[]
+  nutritionalValue   NutritionalValue   @relation(fields: [nutritionalValueId], references: [id])
+  nutritionalValueId String             @unique
 }
 
 model NutritionalValue {
-  id            String  @id @default(uuid())
+  id            String   @id @default(uuid())
   protein       Float
   fat           Float
   carbohydrates Float
   kcal          Int
   recipe        Recipe?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
 // #region Cuisine
 model Cuisine {
   id          String   @id @default(uuid())
   name        String   @unique
-  icon        Image    @relation(fields: [iconId], references: [id])
-  iconId      String
+  icon        String
   description String?
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -152,21 +142,4 @@ model Blog {
   image       String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-}
-
-model Image {
-  id         String       @id @default(uuid())
-  buffer     String
-  mineType   String
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime     @updatedAt
-  Meal       Meal[]
-  Ingredient Ingredient[]
-  Cuisine    Cuisine[]
-}
-
-model Example {
-  id       String @id @default(uuid())
-  buffer   Bytes
-  mineType String
 }

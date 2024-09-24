@@ -1,46 +1,46 @@
 [
     {
-        "id": "a1b2c3d4-e5f6-g7h8-i9j0-k1l2m3n4o5p6",
-        "name": "Grilled Chicken",
-        "description": "Juicy grilled chicken served with a side of vegetables.",
+        "id": "a4b1e2c4-4d5f-4c8b-8f6f-3d0e8e4f3b2a",
+        "name": "Beef Brisket",
+        "description": "Beef brisket is a flavorful and tender cut of meat that comes from the breast section of the cow. Known for its rich, beefy taste.",
         "createdAt": "2024-09-22T08:47:50.856Z",
         "updatedAt": "2024-09-22T08:47:50.856Z",
-        "imageId": "1a2b3c4d-5e6f-7g8h-9i0j-k1l2m3n4o5p6",
-        "cuisineId": "1b2c3d4e-5f6g-7h8i-9j0k-l1m2n3o4p5q6",
-        "recipeId": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6",
-        "createdById": "0def56eb-8a21-4a63-b8fd-67412b69637b"
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "recipeId": "4f2c32d5-9b41-4e6e-9fcb-2a7f0fe4b8a6",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
     },
     {
-        "id": "b2c3d4e5-f6g7-h8i9-j0k1-l2m3n4o5p6q7",
+        "id": "b5a1d3e2-2c4f-4f8b-9d6e-7c8f0e1a2b3c",
         "name": "Quinoa Bowl",
         "description": "Healthy quinoa bowl with mixed vegetables.",
         "createdAt": "2024-09-22T08:47:50.856Z",
         "updatedAt": "2024-09-22T08:47:50.856Z",
-        "imageId": "2a3b4c5d-6e7f-8g9h-0i1j-k2l3m4n5o6p7",
-        "cuisineId": "1b2c3d4e-5f6g-7h8i-9j0k-l1m2n3o4p5q6",
-        "recipeId": "k2l3m4n5-o6p7-q8r9-s0t1-u2v3w4x5y6z7",
-        "createdById": "0def56eb-8a21-4a63-b8fd-67412b69637b"
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
     },
     {
-        "id": "c3d4e5f6-g7h8-i9j0-k1l2-m3n4o5p6q7r8",
+        "id": "c2b5e9f0-8a1d-4e2b-9f6e-3a0c5f7b8e6c",
         "name": "Vegetable Stir Fry",
         "description": "Stir-fried vegetables with soy sauce.",
         "createdAt": "2024-09-22T08:47:50.856Z",
         "updatedAt": "2024-09-22T08:47:50.856Z",
-        "imageId": "3a4b5c6d-7e8f-9g0h-1i2j-k3l4m5n6o7p8",
-        "cuisineId": "2b3c4d5e-6f7g-8h9i-0j1k-l2m3n4o5p6q7",
-        "recipeId": "l3m4n5o6-p7q8-r9s0-t1u2-v3w4x5y6z7a8",
-        "createdById": "0def56eb-8a21-4a63-b8fd-67412b69637b"
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "b7862845-39b5-4fb6-b8ab-4730a7f8e932",
+        "recipeId": "c12c4c05-4b52-49c9-9f7b-51b1e6a90c3e",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
     },
     {
-        "id": "d4e5f6g7-h8i9-j0k1-l2m3-n4o5p6q7r8s9",
+        "id": "d6a8f4b2-1e5c-4f8d-9b6e-7c1d0e2a3f5b",
         "name": "Egg Omelette",
         "description": "Delicious egg omelette with spinach.",
         "createdAt": "2024-09-22T08:47:50.856Z",
         "updatedAt": "2024-09-22T08:47:50.856Z",
-        "imageId": "4a5b6c7d-8e9f-0g1h-2i3j-k4l5m6n7o8p9",
-        "cuisineId": "1b2c3d4e-5f6g-7h8i-9j0k-l1m2n3o4p5q6",
-        "recipeId": "m4n5o6p7-q8r9-s0t1-u2v3-w4x5y6z7a8b9",
-        "createdById": "0def56eb-8a21-4a63-b8fd-67412b69637b"
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
     }
 ]

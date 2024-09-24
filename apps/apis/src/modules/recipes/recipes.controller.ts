@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Query, UseGuards } from '@nestjs/common'
+import { Controller, Get, Post, Body, Param, Delete, Query, UseGuards, Put } from '@nestjs/common'
 import { RecipesService } from './recipes.service'
 import { CreateRecipeDto } from './dtos/create-recipe.dto'
 import { UpdateRecipeDto } from './dtos/update-recipe.dto'
@@ -26,10 +26,10 @@ export class RecipesController {
     @Get(':id')
     @ApiParam({ name: 'id', type: String, required: true, description: 'Id of the recipe to find record' })
     async findOne(@Param('id') id: string) {
-        return await this.recipesService.findOne(id)
+        return await this.recipesService.findOne(id, null, 'relation')
     }
 
-    @Patch(':id')
+    @Put(':id')
     @ApiParam({ name: 'id', type: String, required: true, description: 'Id of the recipe to delete' })
     @ApiBody({ type: UpdateRecipeDto, required: true, description: 'Data of recipe data to update' })
     async update(@Param('id') id: string, @Body() updateRecipeDto: UpdateRecipeDto) {

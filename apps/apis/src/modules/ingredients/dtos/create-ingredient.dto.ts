@@ -7,6 +7,10 @@ export class CreateIngredientDto {
 
     @IsString()
     @IsNotEmpty()
+    image: string
+
+    @IsString()
+    @IsNotEmpty()
     carbohydrates: string
 
     @IsString()

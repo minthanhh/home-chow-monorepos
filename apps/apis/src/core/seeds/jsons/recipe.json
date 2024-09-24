@@ -1,30 +1,23 @@
 [
     {
-        "id": "j1k2l3m4-n5o6-p7q8-r9s0-t1u2v3w4x5y6",
-        "description": "Grilled Chicken with Broccoli",
+        "id": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "description": "Our Beef Brisket is made only with quality ingredients - fresh meat, olive oil, and herbs.",
         "createdAt": "2024-09-18T07:52:57.041Z",
         "updatedAt": "2024-09-18T07:52:57.041Z",
-        "nutritionalValueId": "e2f3g4h5-i6j7-k8l9-m0n1-o2p3q4r5s6t7"
+        "nutritionalValueId": "b8019910-6481-4e7f-89f8-08606e75ac92"
     },
     {
-        "id": "k2l3m4n5-o6p7-q8r9-s0t1-u2v3w4x5y6z7",
+        "id": "4f2c32d5-9b41-4e6e-9fcb-2a7f0fe4b8a6",
         "description": "Quinoa Salad",
         "createdAt": "2024-09-18T07:52:57.041Z",
         "updatedAt": "2024-09-18T07:52:57.041Z",
-        "nutritionalValueId": "f3g4h5i6-j7k8-l9m0-n1o2-p3q4r5s6t7u8"
+        "nutritionalValueId": "e4edc30d-fd40-47f6-a80b-e5955d84a561"
     },
     {
-        "id": "l3m4n5o6-p7q8-r9s0-t1u2-v3w4x5y6z7a8",
+        "id": "c12c4c05-4b52-49c9-9f7b-51b1e6a90c3e",
         "description": "Vegetable Stir Fry",
         "createdAt": "2024-09-18T07:52:57.041Z",
         "updatedAt": "2024-09-18T07:52:57.041Z",
-        "nutritionalValueId": "g4h5i6j7-k8l9-m0n1-o2p3-q4r5s6t7u8v9"
-    },
-    {
-        "id": "m4n5o6p7-q8r9-s0t1-u2v3-w4x5y6z7a8b9",
-        "description": "Egg and Spinach Omelette",
-        "createdAt": "2024-09-18T07:52:57.041Z",
-        "updatedAt": "2024-09-18T07:52:57.041Z",
-        "nutritionalValueId": "h5i6j7k8-l9m0-n1o2-p3q4-r5s6t7u8v9w0"
+        "nutritionalValueId": "0c3ec9e5-70c0-4503-bf04-855f6a66d51b"
     }
 ]

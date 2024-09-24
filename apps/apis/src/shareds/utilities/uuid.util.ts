@@ -1,5 +1,5 @@
 import { uuidRegex } from '../constants'
-import { Image, Ingredient } from '@prisma/client'
+import { Ingredient } from '@prisma/client'
 
 type IngredientType = Omit<Ingredient, 'id' | 'createdAt' | 'updatedAt' | 'protein' | 'fat' | 'quantity' | 'carbohydrates'> & {
     protein: string
@@ -19,7 +19,7 @@ type UuidNamePairsType = Array<string | Partial<IngredientType>>
  * @var {string[]} n is short name of names
  * @returns {[string[], string[]]}
  */
-export function extractUuidAndNameArrays(l: UuidNamePairsType, imgs: Image[]): [string[], ReturnIngredientType[]] {
+export function extractUuidAndNameArrays(l: UuidNamePairsType): [string[], ReturnIngredientType[]] {
     const u: string[] = [],
         n: ReturnIngredientType[] = []
 
@@ -31,18 +31,16 @@ export function extractUuidAndNameArrays(l: UuidNamePairsType, imgs: Image[]): [
         if (typeof p === 'string' && uuidRegex.test(p)) {
             u.push(p)
             continue
+        } else {
+            const po = p as IngredientType
+            n.push({
+                ...po,
+                protein: parseInt(po.protein),
+                carbohydrates: parseInt(po.carbohydrates),
+                fat: parseInt(po.fat),
+                quantity: parseInt(po.quantity),
+            })
         }
-
-        const po = p as IngredientType
-
-        n.push({
-            ...po,
-            imageId: imgs[i].id,
-            protein: parseInt(po.protein),
-            carbohydrates: parseInt(po.carbohydrates),
-            fat: parseInt(po.fat),
-            quantity: parseInt(po.quantity),
-        })
     }
 
     return [u, n]

@@ -2,9 +2,9 @@ import { CURRENT_PAGE_DEFAULT, PAGE_SIZE_DEFAULT } from '../constants'
 import { IPaginatedResult, PaginatedResult } from '../dtos'
 
 export type PaginateOptions = { currentPage?: number | string; pageSize?: number | string }
-export type PaginateFunction = <T, K>(model: any, args?: K, options?: PaginateOptions) => Promise<IPaginatedResult<T>>
+export type PaginateFunction<T, K> = (model: any, args?: K, options?: PaginateOptions) => Promise<IPaginatedResult<T>>
 
-export const paginator = (defaultOptions: PaginateOptions): PaginateFunction => {
+export const paginator = <T, K = any>(defaultOptions: PaginateOptions): PaginateFunction<T, K> => {
     return async (model, args: any = { where: undefined }, options) => {
         const currentPage = Number(options?.currentPage || defaultOptions?.currentPage) || CURRENT_PAGE_DEFAULT
         const pageSize = Number(options?.pageSize || defaultOptions?.pageSize) || PAGE_SIZE_DEFAULT
@@ -20,7 +20,7 @@ export const paginator = (defaultOptions: PaginateOptions): PaginateFunction => 
         ])
         const lastPage = Math.ceil(total / pageSize)
 
-        return new PaginatedResult({
+        return new PaginatedResult<T>({
             data,
             meta: {
                 total,

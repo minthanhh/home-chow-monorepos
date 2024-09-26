@@ -3,7 +3,7 @@ import { CreateIngredientDto } from './dtos/create-ingredient.dto'
 import { UpdateIngredientDto } from './dtos/update-ingredient.dto'
 import { PrismaService } from 'src/shareds'
 import { PaginationDto } from 'src/core/dtos'
-import { Prisma } from '@prisma/client'
+import { Ingredient, Prisma } from '@prisma/client'
 import { paginator } from 'src/core/utilities'
 
 @Injectable()
@@ -19,6 +19,7 @@ export class IngredientsService {
         @returns - Return new data record created.
      */
     async create(createIngredientDto: CreateIngredientDto) {
+        console.log('createIngredientDto', createIngredientDto)
         const newIngredient = await this.prismaService.ingredient.create({
             data: {
                 name: createIngredientDto.name,
@@ -92,21 +93,30 @@ export class IngredientsService {
             WHERE "RecipeIngredient"."recipeId" = 'a3fc15c8-ca96-4ad8-bb84-cd3cfce9edac'
      */
     async findAllByRecipeId(recipeId: string, paginationDto?: PaginationDto) {
-        return await paginator(paginationDto)(this.prismaService.recipeIngredient, {
-            where: {
-                recipeId: recipeId,
-            },
-            select: {
-                ingredient: {
-                    select: {
-                        id: true,
-                        image: true,
-                        name: true,
-                        createdAt: true,
+        const ingredients = await paginator<{ ingredient: Ingredient }, Prisma.RecipeIngredientFindManyArgs>(paginationDto)(
+            this.prismaService.recipeIngredient,
+            {
+                where: {
+                    recipeId: recipeId,
+                },
+                select: {
+                    ingredient: {
+                        select: {
+                            id: true,
+                            image: true,
+                            name: true,
+                            carbohydrates: true,
+                            fat: true,
+                            protein: true,
+                            quantity: true,
+                            createdAt: true,
+                        },
                     },
                 },
             },
-        })
+        )
+
+        return { ...ingredients, data: ingredients.data.map((i) => i.ingredient) }
     }
 
     /**

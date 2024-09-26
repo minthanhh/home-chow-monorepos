@@ -20,7 +20,7 @@ const router = createRouter({
           path: '/',
           name: 'home',
           components: {
-            default: () => import('../views/HomeView.vue'),
+            default: () => import('../views/dashboard/DashboardView.vue'),
             CommonSidebar: () => import('../shareds/components/commons/CommonSidebar.vue')
           }
         },

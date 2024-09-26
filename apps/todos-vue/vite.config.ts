@@ -13,6 +13,7 @@ export default defineConfig({
     }
   },
   server: {
+    hmr: true,
     host: true,
     port: 3001
   }

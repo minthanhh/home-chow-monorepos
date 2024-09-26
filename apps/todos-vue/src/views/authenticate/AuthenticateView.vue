@@ -23,11 +23,11 @@ const { handleSubmit, setFieldError, resetForm } = useForm({
         .string({ message: t('$vuetify.common_form_validate_username_or_email_required') })
         .min(1, { message: t('$vuetify.common_form_validate_username_or_email_required') })
         .email({ message: t('$vuetify.common_form_validate_email') })
-        .default('hello5@gmail.com'),
+        .default('mint03sanzz@gmail.com'),
       password: zod
         .string({ message: t('$vuetify.common_form_validate_password_requied') })
         .min(1, { message: t('$vuetify.common_form_validate_password_requied') })
-        .default('Hello5_123')
+        .default('Hello_123')
     })
   )
 })

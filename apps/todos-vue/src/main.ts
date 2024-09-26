@@ -14,6 +14,7 @@ import { i18n, locale, theme } from './core/plugins'
 import { aliases, mdi } from 'vuetify/iconsets/mdi-svg'
 import { userUserStore } from '@/stores'
 import { initializeInterceptors } from './shareds/services'
+import VueApexCharts from 'vue3-apexcharts'
 
 const app = createApp(App)
 const vuetify = createVuetify({
@@ -38,5 +39,9 @@ userStore.initializeToken()
 initializeInterceptors(userStore)
 
 app.use(router)
+app.use(VueApexCharts)
+
+// eslint-disable-next-line vue/multi-word-component-names
+app.component('apexchart', VueApexCharts)
 
 app.mount('#app')

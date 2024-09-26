@@ -60,7 +60,7 @@ const drawer = computed({
 const navLinks = [
   {
     title: 'Dashboard',
-    value: 'dashboard',
+    value: '/',
     icon: mdiViewGridOutline
   },
   {

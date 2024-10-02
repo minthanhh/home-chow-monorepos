@@ -1,26 +1,32 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, NotFoundException } from '@nestjs/common'
 import { CreateBlogDto } from './dtos/create-blog.dto'
 import { UpdateBlogDto } from './dtos/update-blog.dto'
+import { PrismaService } from 'src/shareds'
 
 @Injectable()
 export class BlogsService {
-    create(createBlogDto: CreateBlogDto) {
-        return 'This action adds a new blog'
+    constructor(private readonly prismaService: PrismaService) {}
+
+    async create(createBlogDto: CreateBlogDto) {
+        return await this.prismaService.blog.create({ data: createBlogDto })
     }
 
-    findAll() {
-        return `This action returns all blogs`
+    async findAll() {
+        return await this.prismaService.blog.findMany()
     }
 
-    findOne(id: number) {
-        return `This action returns a #${id} blog`
+    async findOne(id: string) {
+        const existing = await this.prismaService.blog.findUnique({ where: { id } })
+        if (!existing) throw new NotFoundException(`Cuisine with id ${id} not found`)
+        return
     }
 
-    update(id: number, updateBlogDto: UpdateBlogDto) {
-        return `This action updates a #${id} blog`
+    async update(id: string, updateBlogDto: UpdateBlogDto) {
+        await this.findOne(id)
     }
 
-    remove(id: number) {
-        return `This action removes a #${id} blog`
+    async remove(id: string) {
+        await this.findOne(id)
+        return await this.prismaService.blog.delete({ where: { id } })
     }
 }

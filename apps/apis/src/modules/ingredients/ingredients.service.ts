@@ -3,8 +3,8 @@ import { CreateIngredientDto } from './dtos/create-ingredient.dto'
 import { UpdateIngredientDto } from './dtos/update-ingredient.dto'
 import { PrismaService } from 'src/shareds'
 import { PaginationDto } from 'src/core/dtos'
-import { Ingredient, Prisma } from '@prisma/client'
 import { paginator } from 'src/core/utilities'
+import { Prisma, Ingredient } from '@prisma/client'
 
 @Injectable()
 export class IngredientsService {

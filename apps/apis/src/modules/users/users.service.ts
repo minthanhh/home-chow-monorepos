@@ -1,5 +1,5 @@
 import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common'
-import { CreateUserDto } from './dtos'
+import { CreateUserDto, VerifyOtpPhoneNumberDto } from './dtos'
 import * as bcrypt from 'bcrypt'
 import { IProfile } from './interfaces'
 import { JwtService } from '@nestjs/jwt'
@@ -7,8 +7,8 @@ import { Payload } from './@types'
 import { PrismaService } from 'src/shareds'
 import { ConfigType } from '@nestjs/config'
 import refreshJwtConfig from './configs/refresh-jwt.config'
-import { User } from '@prisma/client'
 import { MailService } from '../mail'
+import { User } from '@prisma/client'
 
 @Injectable()
 export class UsersService {
@@ -23,6 +23,12 @@ export class UsersService {
         const payload: Payload = { sub: user.id }
         const accessToken = this.jwtService.sign(payload)
         return { accessToken }
+    }
+
+    async loginWithPhoneNumber() {}
+
+    async verifyOtpPhoneNumber(verifyPhoneNumberDto: VerifyOtpPhoneNumberDto) {
+        const { phone, otp } = verifyPhoneNumberDto
     }
 
     async login(user: User) {

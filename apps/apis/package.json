@@ -6,8 +6,8 @@
     "private": true,
     "license": "UNLICENSED",
     "scripts": {
-        "build": "pnpm prisma:generate:win && nest build",
-        "postinstall": "pnpm prisma:generate:win",
+        "build": "pnpm postinstall && nest build",
+        "postinstall": "prisma generate",
         "prisma:generate:win": "cross-env-shell \"[ $NODE_ENV = 'production' ] && npx prisma generate --accelerate --no-engine --schema=./prisma/schema.prisma || npx prisma generate --no-engine --schema=./prisma/schema.prisma\"",
         "prisma:generate:other": "cross-env \"[ $NODE_ENV = 'production' ] && npx prisma generate --accelerate --no-engine --schema=./prisma/schema.prisma || npx prisma generate --no-engine --schema=./prisma/schema.prisma\"",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
@@ -62,6 +62,7 @@
         "passport-local": "^1.0.0",
         "reflect-metadata": "^0.2.0",
         "rxjs": "^7.8.1",
+        "speakeasy": "^2.0.0",
         "twilio": "^5.2.3",
         "uuid": "^10.0.0"
     },

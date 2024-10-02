@@ -1,0 +1,46 @@
+[
+    {
+        "id": "a4b1e2c4-4d5f-4c8b-8f6f-3d0e8e4f3b2a",
+        "name": "Beef Brisket",
+        "description": "Beef brisket is a flavorful and tender cut of meat that comes from the breast section of the cow. Known for its rich, beefy taste.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "recipeId": "4f2c32d5-9b41-4e6e-9fcb-2a7f0fe4b8a6",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
+    },
+    {
+        "id": "b5a1d3e2-2c4f-4f8b-9d6e-7c8f0e1a2b3c",
+        "name": "Quinoa Bowl",
+        "description": "Healthy quinoa bowl with mixed vegetables.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
+    },
+    {
+        "id": "c2b5e9f0-8a1d-4e2b-9f6e-3a0c5f7b8e6c",
+        "name": "Vegetable Stir Fry",
+        "description": "Stir-fried vegetables with soy sauce.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "b7862845-39b5-4fb6-b8ab-4730a7f8e932",
+        "recipeId": "c12c4c05-4b52-49c9-9f7b-51b1e6a90c3e",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
+    },
+    {
+        "id": "d6a8f4b2-1e5c-4f8d-9b6e-7c1d0e2a3f5b",
+        "name": "Egg Omelette",
+        "description": "Delicious egg omelette with spinach.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "image": "https://homechow-s3-bucket.s3express-az_id.region.amazonaws.com/images/3af2a1e6-96ef-43f7-91cb-b0fe2f23917b.png",
+        "cuisineId": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "createdById": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1"
+    }
+]

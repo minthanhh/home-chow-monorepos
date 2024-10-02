@@ -3,7 +3,7 @@ import { Inject, Injectable } from '@nestjs/common'
 import awsS3Config from './configs/aws-s3.config'
 import { ConfigType } from '@nestjs/config'
 import { GeneratorUtil } from 'src/shareds/utilities'
-import mine from 'src/core/setups/mine-types'
+import mine from '../../core/setups/mine-types'
 @Injectable()
 export class AwsS3Service {
     private readonly _s3: S3

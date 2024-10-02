@@ -1,0 +1,105 @@
+import { CreateUserDto, VerifyOtpPhoneNumberDto } from './dtos';
+import { IProfile } from './interfaces';
+import { JwtService } from '@nestjs/jwt';
+import { PrismaService } from 'src/shareds';
+import { ConfigType } from '@nestjs/config';
+import refreshJwtConfig from './configs/refresh-jwt.config';
+import { MailService } from '../mail';
+import { User } from '@prisma/client';
+export declare class UsersService {
+    private readonly prismaService;
+    private readonly jwtService;
+    private readonly mailService;
+    private readonly refreshJwtConfigure;
+    constructor(prismaService: PrismaService, jwtService: JwtService, mailService: MailService, refreshJwtConfigure: ConfigType<typeof refreshJwtConfig>);
+    refreshToken(user: User): Promise<{
+        accessToken: string;
+    }>;
+    loginWithPhoneNumber(): Promise<void>;
+    verifyOtpPhoneNumber(verifyPhoneNumberDto: VerifyOtpPhoneNumberDto): Promise<void>;
+    login(user: User): Promise<{
+        userId: string;
+        accessToken: string;
+        refreshToken: string;
+    }>;
+    createUser(createUser: CreateUserDto): Promise<{
+        id: string;
+        email: string;
+        phone: string | null;
+        username: string;
+        fullName: string | null;
+        birthDate: string | null;
+        work: string | null;
+        password: string;
+        address: string | null;
+        avatar: string | null;
+        refreshToken: string | null;
+        refreshTokenExpiration: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    getUser(userId: string): Promise<{
+        id: string;
+        email: string;
+        phone: string | null;
+        username: string;
+        fullName: string | null;
+        birthDate: string | null;
+        work: string | null;
+        password: string;
+        address: string | null;
+        avatar: string | null;
+        refreshToken: string | null;
+        refreshTokenExpiration: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    validateUserByPhone(phone: string): Promise<{
+        id: string;
+        email: string;
+        phone: string | null;
+        username: string;
+        fullName: string | null;
+        birthDate: string | null;
+        work: string | null;
+        password: string;
+        address: string | null;
+        avatar: string | null;
+        refreshToken: string | null;
+        refreshTokenExpiration: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    validateUser(username: string, password: string): Promise<{
+        id: string;
+        email: string;
+        phone: string | null;
+        username: string;
+        fullName: string | null;
+        birthDate: string | null;
+        work: string | null;
+        password: string;
+        address: string | null;
+        avatar: string | null;
+        refreshToken: string | null;
+        refreshTokenExpiration: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+    validateUserGoogle(profile: IProfile): Promise<{
+        id: string;
+        email: string;
+        phone: string | null;
+        username: string;
+        fullName: string | null;
+        birthDate: string | null;
+        work: string | null;
+        password: string;
+        address: string | null;
+        avatar: string | null;
+        refreshToken: string | null;
+        refreshTokenExpiration: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }>;
+}

@@ -1,0 +1,74 @@
+[
+    {
+        "id": "e8156fb2-0d10-4318-aa5b-6ea91c5a0b59",
+        "name": "American",
+        "description": "Breakfast cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/american.svg"
+    },
+    {
+        "id": "b7862845-39b5-4fb6-b8ab-4730a7f8e932",
+        "name": "Soul",
+        "description": "Lunch cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/soul.svg"
+    },
+    {
+        "id": "d22f837c-80e8-4189-a76a-782be6075ebe",
+        "name": "Asian",
+        "description": "Dinner cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/asian.svg"
+    },
+    {
+        "id": "991172db-1a48-40a8-aef0-66b543f2b7ec",
+        "name": "Mexican",
+        "description": "Snacks cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/mexican.svg"
+    },
+    {
+        "id": "d31ca75b-ef24-4ced-a465-1346ed0429c8",
+        "name": "Indian",
+        "description": "Dessert cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/indian.svg"
+    },
+    {
+        "id": "f2d35ca8-9837-48ee-a8de-7eac42632a81",
+        "name": "Vegetarian",
+        "description": "Appetizers cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/vegetarian.svg"
+    },
+    {
+        "id": "d628216c-8547-490f-a943-5a4d69aa2439",
+        "name": "Mediterranean",
+        "description": "Salad cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/mediterranean.svg"
+    },
+    {
+        "id": "8e3f7ddc-e463-40e3-ac1f-c78eda0b7e54",
+        "name": "Continental",
+        "description": "Soup cuisine with various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/continental.svg"
+    },
+    {
+        "id": "dab252d8-5bf8-4ff3-888f-b684c407825e",
+        "name": "Pescatarian",
+        "description": "Various dishes and flavors.",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z",
+        "icon": "https://homechow-s3-bucket.s3.amazonaws.com/images/pescatarian.svg"
+    }
+]

@@ -1,0 +1,35 @@
+[
+    {
+        "id": "8a5e7d4c-7c85-4b78-9d55-1b6f5f8e0a3f",
+        "name": "Herbs",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 30,
+        "fat": 10,
+        "protein": 20,
+        "image": "https://homechow-s3-bucket.s3.amazonaws.com/images/5c118076-858c-4d0b-984b-b5a0db21fe41.png",
+        "quantity": 2
+    },
+    {
+        "id": "a4e6b8c9-1f0e-4b3e-9c45-2d6a7e8c9b0f",
+        "name": "Oilive old",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 15,
+        "fat": 20,
+        "protein": 20,
+        "image": "https://homechow-s3-bucket.s3.amazonaws.com/images/c779702f-4f86-4609-b6f4-649f14277874.png",
+        "quantity": 1
+    },
+    {
+        "id": "c3d7f5b1-b7e8-4f9c-b0a1-2c4e4a7e8b5a",
+        "name": "Beef",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 10,
+        "fat": 5,
+        "protein": 30,
+        "image": "https://homechow-s3-bucket.s3.amazonaws.com/images/c8d33db4-74cb-459e-a933-d9d768d3297d.png",
+        "quantity": 2
+    }
+]

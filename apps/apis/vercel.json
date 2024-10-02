@@ -1,10 +1,11 @@
 {
+    "version": 2,
     "builds": [
         {
             "src": "dist/main.js",
             "use": "@vercel/node",
             "config": {
-                "includeFiles": ["apps/apis/prisma/**", "apps/apis/node_modules/@prisma/client/**", "apps/apis/node_modules/.prisma/client/**"]
+                "includeFiles": ["prisma/**", "node_modules/.prisma/client/**", "node_modules/@prisma/client/**"]
             }
         }
     ],

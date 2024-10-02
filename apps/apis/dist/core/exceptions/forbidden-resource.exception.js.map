@@ -1,0 +1,1 @@
+{"version":3,"file":"forbidden-resource.exception.js","sourceRoot":"","sources":["../../../src/core/exceptions/forbidden-resource.exception.ts"],"names":[],"mappings":";;;AAAA,2CAAmD;AACnD,wCAAqD;AAErD,MAAa,0BAA2B,SAAQ,2BAAkB;IAC9D,YAAY,KAAc;QACtB,KAAK,CAAC,kCAAwB,EAAE,KAAK,CAAC,CAAA;IAC1C,CAAC;CACJ;AAJD,gEAIC"}

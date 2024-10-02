@@ -1,7 +1,7 @@
 import { extractUuidAndNameArrays } from 'src/shareds/utilities'
 import { CreateIngredientDto } from '../dtos'
-import { Ingredient } from '@prisma/client'
 import { IPrismaTransaction } from 'src/core/interfaces'
+import { Ingredient } from '@prisma/client'
 
 export async function returnIngredients(prisma: IPrismaTransaction, createIngredients: (CreateIngredientDto | string)[]): Promise<Ingredient[]> {
     const ingredientProcess = []

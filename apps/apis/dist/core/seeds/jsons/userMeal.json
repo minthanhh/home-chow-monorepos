@@ -1,0 +1,26 @@
+[
+    {
+        "userId": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1",
+        "mealId": "a4b1e2c4-4d5f-4c8b-8f6f-3d0e8e4f3b2a",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z"
+    },
+    {
+        "userId": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1",
+        "mealId": "b5a1d3e2-2c4f-4f8b-9d6e-7c8f0e1a2b3c",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z"
+    },
+    {
+        "userId": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1",
+        "mealId": "c2b5e9f0-8a1d-4e2b-9f6e-3a0c5f7b8e6c",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z"
+    },
+    {
+        "userId": "c3f1d8a0-5a56-4d2b-bc7b-88c4d5e6a7b1",
+        "mealId": "d6a8f4b2-1e5c-4f8d-9b6e-7c1d0e2a3f5b",
+        "createdAt": "2024-09-22T08:47:50.856Z",
+        "updatedAt": "2024-09-22T08:47:50.856Z"
+    }
+]

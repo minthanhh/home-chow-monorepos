@@ -1,0 +1,29 @@
+[
+    {
+        "id": "b8019910-6481-4e7f-89f8-08606e75ac92",
+        "protein": 25.0,
+        "kcal": 500,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 60.0,
+        "fat": 20.0
+    },
+    {
+        "id": "e4edc30d-fd40-47f6-a80b-e5955d84a561",
+        "protein": 15.0,
+        "kcal": 300,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 40.0,
+        "fat": 10.0
+    },
+    {
+        "id": "0c3ec9e5-70c0-4503-bf04-855f6a66d51b",
+        "protein": 30.0,
+        "kcal": 600,
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z",
+        "carbohydrates": 70.0,
+        "fat": 25.0
+    }
+]

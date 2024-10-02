@@ -1,0 +1,56 @@
+[
+    {
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "ingredientId": "8a5e7d4c-7c85-4b78-9d55-1b6f5f8e0a3f",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "ingredientId": "a4e6b8c9-1f0e-4b3e-9c45-2d6a7e8c9b0f",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "2e7bc31f-2e8e-4ecf-bf3a-dc1e8f6c8f85",
+        "ingredientId": "c3d7f5b1-b7e8-4f9c-b0a1-2c4e4a7e8b5a",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "4f2c32d5-9b41-4e6e-9fcb-2a7f0fe4b8a6",
+        "ingredientId": "8a5e7d4c-7c85-4b78-9d55-1b6f5f8e0a3f",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "4f2c32d5-9b41-4e6e-9fcb-2a7f0fe4b8a6",
+        "ingredientId": "a4e6b8c9-1f0e-4b3e-9c45-2d6a7e8c9b0f",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "4f2c32d5-9b41-4e6e-9fcb-2a7f0fe4b8a6",
+        "ingredientId": "c3d7f5b1-b7e8-4f9c-b0a1-2c4e4a7e8b5a",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "c12c4c05-4b52-49c9-9f7b-51b1e6a90c3e",
+        "ingredientId": "8a5e7d4c-7c85-4b78-9d55-1b6f5f8e0a3f",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "c12c4c05-4b52-49c9-9f7b-51b1e6a90c3e",
+        "ingredientId": "a4e6b8c9-1f0e-4b3e-9c45-2d6a7e8c9b0f",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    },
+    {
+        "recipeId": "c12c4c05-4b52-49c9-9f7b-51b1e6a90c3e",
+        "ingredientId": "c3d7f5b1-b7e8-4f9c-b0a1-2c4e4a7e8b5a",
+        "createdAt": "2024-09-18T07:52:57.041Z",
+        "updatedAt": "2024-09-18T07:52:57.041Z"
+    }
+]

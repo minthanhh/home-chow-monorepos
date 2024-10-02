@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,12 +5,8 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
-  // directUrl = env("DIRECT_DATABASE_URL")
 }
 
-// npx prisma migrate dev --name "init"
-
-// #region User
 model User {
   id                     String     @id @default(uuid())
   email                  String     @unique
@@ -32,23 +22,21 @@ model User {
   refreshTokenExpiration DateTime?
   createdAt              DateTime   @default(now())
   updatedAt              DateTime   @updatedAt
+  createdMeals           Meal[]     @relation("UserCreatedMeals")
   favoritedMeals         UserMeal[]
-  createdMeals           Meal[]     @relation("UserCreatedMeals") // Quan hệ mới cho meals được tạo
 }
 
-// #region Intermediry User
 model UserMeal {
   userId    String
   mealId    String
-  user      User     @relation(fields: [userId], references: [id])
-  meal      Meal     @relation(fields: [mealId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  meal      Meal     @relation(fields: [mealId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
 
   @@id([userId, mealId])
 }
 
-// #region Meal
 model Meal {
   id          String     @id @default(uuid())
   name        String
@@ -56,52 +44,48 @@ model Meal {
   image       String
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
-  cuisine     Cuisine    @relation(fields: [cuisineId], references: [id])
   cuisineId   String
-  recipe      Recipe     @relation(fields: [recipeId], references: [id])
   recipeId    String
-  createdBy   User       @relation("UserCreatedMeals", fields: [createdById], references: [id])
   createdById String
+  createdBy   User       @relation("UserCreatedMeals", fields: [createdById], references: [id])
+  cuisine     Cuisine    @relation(fields: [cuisineId], references: [id])
+  recipe      Recipe     @relation(fields: [recipeId], references: [id])
   preferredBy UserMeal[]
 }
 
-// #region Intermediary Recipe
 model RecipeIngredient {
   recipeId     String
   ingredientId String
-  recipe       Recipe     @relation(fields: [recipeId], references: [id])
-  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
   createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
+  ingredient   Ingredient @relation(fields: [ingredientId], references: [id])
+  recipe       Recipe     @relation(fields: [recipeId], references: [id])
 
-  @@id([recipeId, ingredientId]) // Đảm bảo mỗi cặp recipeId và ingredientId là duy nhất
+  @@id([recipeId, ingredientId])
 }
 
-// #region Ingredient
 model Ingredient {
-  id            String @id @default(uuid())
+  id            String             @id @default(uuid())
   name          String
   image         String
   protein       Int
   fat           Int
   carbohydrates Int
   quantity      Int
-
-  createdAt DateTime           @default(now())
-  updatedAt DateTime           @updatedAt
-  recipes   RecipeIngredient[] // Quan hệ nhiều-nhiều với Recipe thông qua bảng trung gian RecipeIngredient
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  recipes       RecipeIngredient[]
 }
 
-// #region Recipe
 model Recipe {
   id                 String             @id @default(uuid())
   description        String
   createdAt          DateTime           @default(now())
   updatedAt          DateTime           @updatedAt
-  ingredients        RecipeIngredient[] // Quan hệ nhiều-nhiều với Ingredient thông qua bảng trung gian RecipeIngredient
+  nutritionalValueId String             @unique
   meals              Meal[]
   nutritionalValue   NutritionalValue   @relation(fields: [nutritionalValueId], references: [id])
-  nutritionalValueId String             @unique
+  ingredients        RecipeIngredient[]
 }
 
 model NutritionalValue {
@@ -110,12 +94,11 @@ model NutritionalValue {
   fat           Float
   carbohydrates Float
   kcal          Int
-  recipe        Recipe?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  recipe        Recipe?
 }
 
-// #region Cuisine
 model Cuisine {
   id          String   @id @default(uuid())
   name        String   @unique
@@ -126,7 +109,6 @@ model Cuisine {
   meals       Meal[]
 }
 
-// #region Todo
 model Todo {
   id        String   @id @default(uuid())
   title     String

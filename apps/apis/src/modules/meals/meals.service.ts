@@ -2,11 +2,11 @@ import { Injectable, NotFoundException } from '@nestjs/common'
 import { CreateMealDto } from './dtos/create-meal.dto'
 import { UpdateMealDto } from './dtos/update-meal.dto'
 import { PrismaService } from 'src/shareds'
-import { Recipe } from '@prisma/client'
 import { PaginationDto } from 'src/core/dtos'
 import { paginator } from 'src/core/utilities'
 import { returnNutritionalValueId } from '../nutritional-values'
 import { returnIngredients } from '../ingredients/utilities'
+import { Recipe } from '@prisma/client'
 
 @Injectable()
 export class MealsService {

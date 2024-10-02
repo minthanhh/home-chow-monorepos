@@ -1,7 +1,7 @@
 import { caculateNutritionalValue } from './caculate-nutritional-value'
 import { calculateArrayOrNumberPercentage } from './caculate-percent'
-import { Ingredient } from '@prisma/client'
 import { IPrismaTransaction } from 'src/core/interfaces'
+import { Ingredient } from '@prisma/client'
 
 export async function returnNutritionalValueId(prisma: IPrismaTransaction, ingredients: Ingredient[], nutritionalValueId?: string) {
     const { protein, fat, carbohydrates, totalMass } = caculateNutritionalValue(ingredients)

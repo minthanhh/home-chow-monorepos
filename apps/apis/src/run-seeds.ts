@@ -1,4 +1,3 @@
-import { PrismaClient } from '@prisma/client'
 import userData from './core/seeds/jsons/user.json'
 import mealData from './core/seeds/jsons/meal.json'
 import userMealData from './core/seeds/jsons/userMeal.json'
@@ -7,6 +6,7 @@ import recipeData from './core/seeds/jsons/recipe.json'
 import recipeIngredientData from './core/seeds/jsons/recipe-ingredient.json'
 import nutritionalValueData from './core/seeds/jsons/nutritional-value.json'
 import cuisineData from './core/seeds/jsons/cuisine.json'
+import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 

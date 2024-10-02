@@ -1,11 +1,11 @@
 import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Req, Res, UseGuards } from '@nestjs/common'
 import { Request, Response } from 'express'
 import { GoogleOAuthGuard, JwtAuthGuard, LocalAuthGuard, PhoneAuthGuard, RefreshAuthGuard } from './guards'
-import { CreateUserDto, LoginUserDto } from './dtos'
+import { CreateUserDto, LoginUserDto, VerifyOtpPhoneNumberDto } from './dtos'
 import { UsersService } from './users.service'
 import { CurrentUser } from 'src/shareds'
-import { User } from '@prisma/client'
 import { ApiBody, ApiTags, ApiParam } from '@nestjs/swagger'
+import { User } from '@prisma/client'
 
 @ApiTags('users')
 @Controller('users')
@@ -66,6 +66,11 @@ export class UsersController {
     @Post('login-with-phone-number')
     async loginWithPhoneNumber(@CurrentUser() user: User) {
         return await this.usersService.login(user)
+    }
+
+    @Post('verify-opt-phone-number')
+    async verifyOtpPhoneNumber(@Body() verifyPhoneNumberDto: VerifyOtpPhoneNumberDto) {
+        return await this.usersService.verifyOtpPhoneNumber(verifyPhoneNumberDto)
     }
 
     @Post('auto-verify-phone-number')

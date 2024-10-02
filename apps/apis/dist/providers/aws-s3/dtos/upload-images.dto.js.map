@@ -1,0 +1,1 @@
+{"version":3,"file":"upload-images.dto.js","sourceRoot":"","sources":["../../../../src/providers/aws-s3/dtos/upload-images.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,6CAA6C;AAE7C,MAAa,eAAe;CAU3B;AAVD,0CAUC;AADG;IARC,IAAA,qBAAW,EAAC;QACT,IAAI,EAAE,OAAO;QACb,KAAK,EAAE;YACH,IAAI,EAAE,QAAQ;YACd,MAAM,EAAE,QAAQ;SACnB;QACD,WAAW,EAAE,0BAA0B;KAC1C,CAAC;;+CAC2B"}

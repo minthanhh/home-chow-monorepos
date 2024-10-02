@@ -6,6 +6,7 @@ import helmet from 'helmet'
 import { ValidationPipe } from '@nestjs/common'
 import { setupSwagger } from './core/setups'
 import { useContainer } from 'class-validator'
+import process from 'node:process'
 
 export async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
@@ -47,7 +48,7 @@ export async function bootstrap() {
     process.on('SIGTERM', shutdown)
     process.on('SIGINT', shutdown)
 
-    await app.listen(3000)
+    await app.listen(process.env.PORT || 10000)
     console.info(`Server running on ${await app.getUrl()}`)
 }
 

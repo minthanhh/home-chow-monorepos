@@ -6,7 +6,6 @@ import helmet from 'helmet'
 import { ValidationPipe } from '@nestjs/common'
 import { setupSwagger } from './core/setups'
 import { useContainer } from 'class-validator'
-import process from 'node:process'
 
 export async function bootstrap() {
     const app = await NestFactory.create(AppModule, {

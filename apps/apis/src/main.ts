@@ -48,7 +48,7 @@ export async function bootstrap() {
     process.on('SIGTERM', shutdown)
     process.on('SIGINT', shutdown)
 
-    await app.listen(process.env.PORT || 10000)
+    await app.listen(process.env.PORT || 19099)
     console.info(`Server running on ${await app.getUrl()}`)
 }
 

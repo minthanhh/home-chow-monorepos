@@ -7,7 +7,7 @@
     "license": "UNLICENSED",
     "scripts": {
         "build": "pnpm postinstall && nest build",
-        "postinstall": "prisma generate",
+        "postinstall": "npx prisma generate",
         "prisma:generate:win": "cross-env-shell \"[ $NODE_ENV = 'production' ] && npx prisma generate --accelerate --no-engine --schema=./prisma/schema.prisma || npx prisma generate --no-engine --schema=./prisma/schema.prisma\"",
         "prisma:generate:other": "cross-env \"[ $NODE_ENV = 'production' ] && npx prisma generate --accelerate --no-engine --schema=./prisma/schema.prisma || npx prisma generate --no-engine --schema=./prisma/schema.prisma\"",
         "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
